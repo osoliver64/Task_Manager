@@ -19,7 +19,7 @@ let firstNameErrorMsg = "Must enter a first name";
 let lastNameErrorMsg = "Must enter a last name";
 let emailErrorMsg = "Email address should be non-empty with the format xyx@xyz.xyz";
 let usernameErrorMsg = "Username should be non-empty, and within 30 characters long";
-let passwordErrorMsg = "Password should be at least 8 characters";
+let passwordErrorMsg = "Password should be at least 8 characters, and must include a uppercase letter, lowercase letter, number and symbol";
 let retypePasswordErrorMsg = "Passwords do not match";
 
 
@@ -123,6 +123,8 @@ function validateUsername() {
 // Check that password is 8 or more characters
 function validatePassword() {
     let error = defaultMsg;
+    // Minimum of eight characters, at least: one uppercase letter, one lowercase letter, one number and one special character
+    passwordRegEx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
     if (passwordField.value.length < 8) {
         error = passwordErrorMsg;
     }
