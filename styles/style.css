@@ -1,0 +1,115 @@
+/* Import sidebar styles */
+@import url("./sidebar_styles.css");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body.taskbarOpen {
+    margin-left: 280px;
+    
+}
+
+body {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    transition: margin-left 1s ease, width 1s ease;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#addNewTaskButton {
+    padding: 10px 20px;
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50px;
+    border-color: rgb(14, 0, 74);
+    background-color: rgb(107, 95, 123);
+    color: #f1f1f1;
+    font-size: large;
+}
+
+.headings {
+    color:rgb(17, 17, 82)
+}
+.board {
+    display: flex;
+    gap: 2px;
+    width: 180%;
+    background-color: rgb(145, 145, 145);
+    margin-left: 100px;
+}
+
+.column {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.column h2 {
+    text-align: center;
+}
+
+.task-list {
+    min-height: 200px;
+}
+
+.task {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.task.high { border: 2px solid rgb(255, 105, 105); background-color: rgb(255, 201, 201);}
+.task.medium { border: 2px solid rgb(255, 217, 147); background-color: rgb(254, 255, 178);}
+.task.low { border-left: 2px solid rgb(150, 255, 150); background-color: rgb(200, 255, 206);}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 40, 40, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}

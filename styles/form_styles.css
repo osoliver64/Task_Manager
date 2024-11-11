@@ -1,0 +1,118 @@
+/* Remove default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    background-color: rgb(50, 50, 50);
+}
+
+/* Center the body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+/* Center the form container */
+/* #formContainer {
+    max-width: 500px;
+    margin: 0 auto;
+} */
+
+/* Make input labels apear above inputs */
+.textInputContainer label {
+    display: block;
+}
+
+/* Margin and font size of main header */
+#formContainer h1 {
+    margin-top: 15px;
+    font-size: 40px;
+}
+
+#formContainer {
+    width: 500px;
+}
+
+/* Styling for text inputs */
+.textInputContainer input {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 7px;
+    border: 1px solid #9e9e9e;
+}
+
+/* Make text fields 90% width */
+.textInputContainer {
+    width: 90%;
+}
+
+/* Styling for error warning messages */
+.warning {
+    color: red;
+    font-size: 13px;
+}
+
+/* Styling for error markers */
+.errorMarker {
+    width: 16px;
+    margin-left: 5px;
+}
+
+/* Styling for form buttons */
+.formButtonsContainer button {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    width: 75px;
+    margin-top: 10px;
+}
+
+/* Styling for submit button */
+button[type="submit"] {
+    background-color: #008000;
+    color: #FFFFFF;
+}
+
+/* Styling for reset button */
+button[type="reset"] {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+
+
+/* Media query for small screens */
+@media (max-width: 500px) {
+    /* Decrease left margin of the body */
+    body {
+        margin-left: 20px;
+    }
+    /* Right margin for text inputs */
+    .textInputContainer input {
+        margin-right: 5px;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 300px) {
+    /* Decrease left margin of the body */
+    body {
+        margin-left: 10px;
+    }
+    /* Decrease font-size of main header */
+    #formContainer h1 {
+        font-size: 35px;
+    }
+}
