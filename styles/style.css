@@ -1,6 +1,7 @@
 /* Import sidebar styles */
 @import url("./sidebar_styles.css");
 
+/* Reset and general styling */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,20 +9,22 @@
     font-family: Arial, sans-serif;
 }
 
+/* Adjust margin for body when taskbar is open */
 body.taskbarOpen {
     margin-left: 280px;
-    
 }
 
+/* Body styling with centered layout */
 body {
     display: inline-block;
     flex-direction: column;
     align-items: center;
     margin-left: 100px;
     transition: margin-left 1s ease, width 1s ease;
+    background-color:rgb(255, 252, 247);
 }
 
-
+/* Header and button styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -29,24 +32,27 @@ header {
     padding: 20px;
 }
 
+/* General button style */
 button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 10px;
 }
 
+/* Style for the "New Task" button */
 #addNewTaskButton {
     padding: 10px 20px;
     width: 180px;
     height: 50px;
     cursor: pointer;
     border-radius: 50px;
-    border-color: rgb(14, 0, 74);
-    background-color: rgb(107, 95, 123);
+    border-color: #ED9E59;
+    background-color: #ED9E59;
     color: #f1f1f1;
     font-size: large;
 }
 
+/* Main board styling */
 .headings {
     color:rgb(17, 17, 82)
 }
@@ -58,6 +64,7 @@ button {
     margin-left: 100px;
 }
 
+/* Styling for task columns */
 .column {
     flex: 1;
     background-color: #ffffff;
@@ -69,10 +76,12 @@ button {
     text-align: center;
 }
 
+/* Container for task items */
 .task-list {
     min-height: 200px;
 }
 
+/* Individual task styling */
 .task {
     background-color: #fff;
     border-radius: 15px;
@@ -82,10 +91,12 @@ button {
     text-align: center;
 }
 
-.task.high { border: 2px solid rgb(255, 105, 105); background-color: rgb(255, 201, 201);}
-.task.medium { border: 2px solid rgb(255, 217, 147); background-color: rgb(254, 255, 178);}
-.task.low { border-left: 2px solid rgb(150, 255, 150); background-color: rgb(200, 255, 206);}
+/* Task color coding based on priority */
+.task.high { border: 4px solid rgb(255, 165, 165); background-color: rgb(255, 255, 255);}
+.task.medium { border: 3px solid rgb(255, 217, 147); background-color: rgb(255, 255, 255);}
+.task.low { border-left: 1px solid rgb(166, 255, 171); background-color: rgb(255, 255, 255);}
 
+/* Modal styling for adding a new task */
 .modal {
     display: none;
     position: fixed;
@@ -103,13 +114,45 @@ button {
     padding: 20px;
     border-radius: 20px;
     width: 500px;
-    position: relative;
+    position: fixed;
 }
 
+/* Close button style for the modal */
 .close {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     font-size: 18px;
+}
+
+/* Task form layout and input styling */
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#taskForm input, #taskForm select, #taskForm button {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+/* Button style for task form */
+#taskForm button {
+    align-self: flex-start;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    width: 100%;
+    height: 3rem;
+}
+
+#taskForm button:hover {
+    background-color: #ED9E59;
 }
