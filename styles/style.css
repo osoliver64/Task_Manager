@@ -59,7 +59,7 @@ button {
 .board {
     display: flex;
     gap: 2px;
-    width: 180%;
+    width: 100%;
     background-color: rgb(145, 145, 145);
     margin-left: 100px;
 }
