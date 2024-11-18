@@ -1,10 +1,24 @@
 <?php
-    db_connect();
+    $db = db_connect();
+    $REGISTRATION_ERROR_MSG = 'Error. Please enter fill in all form fields';
 
-    
+    if ($_SERVER['REQUEST_METHOD' == 'POST']) {
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-
-    db_disconnect();
+        if ($firstName && $lastName && $email && $username && $password) {
+            $sql = "INSERT INTO users (firstName, lastName, email, username, password) ";
+            $sql .= "VALUES ('$fistName', '$lastName', '$email', '$username', '$password')";
+            $result = mysqli_query($db, $sql);
+        }
+        else {
+            exit($REGISTRATION_ERROR_MSG);
+        }
+    }
+    db_disconnect($db);
 ?>
 
 <!DOCTYPE html>
