@@ -1,3 +1,8 @@
+
+<?php
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +15,7 @@
     <main>
         <div id="formContainer">
         <h1>Sign Up</h1>
-        <form action="login.html" method="get" onsubmit="return login();">
+        <form action="login.html" method="post" onsubmit="return login();">
 
             <div class="textInput">
                 <label for="username">User Name</label>

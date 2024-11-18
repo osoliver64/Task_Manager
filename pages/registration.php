@@ -1,3 +1,12 @@
+<?php
+    db_connect();
+
+    
+
+
+    db_disconnect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

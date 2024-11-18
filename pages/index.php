@@ -17,19 +17,7 @@
     </header>
     
     <!-- Sidebar section with links to different task statuses -->
-    <a><img id="expandMenuIcon" class="hidden" src="../images/expand_menu.png"></a>
-    <div id="sidebar">
-        <div id="sidebarHeading">
-            <h1>Task Manager</h1>
-            <a><img id="colapseMenuIcon" src="../images/collapse_menu.png"></a>
-        </div>
-        <nav>
-            <a class="navLink" href="index.html">Dashboard</a>
-            <a class="navLink" href="pending.html">Pending</a>
-            <a class="navLink" href="inprogress.html">In Progress</a>
-            <a class="navLink" href="completed.html">Completed</a>
-        </nav>
-    </div>
+    <?php include "side_bar.php"; ?>
 
     <!-- Main content section with columns for each task status -->
     <main>
@@ -103,5 +91,7 @@
             </form>
         </div>
     </div>
+    
+    <?php include "footer.php" ?>
 </body>
 </html>
