@@ -1,8 +1,10 @@
 <?php
+
+    require_once("../private/db_functions.php");
     $db = db_connect();
     $REGISTRATION_ERROR_MSG = 'Error. Please enter fill in all form fields';
 
-    if ($_SERVER['REQUEST_METHOD' == 'POST']) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
         $email = $_POST['email'];
@@ -10,13 +12,14 @@
         $password = $_POST['password'];
 
         if ($firstName && $lastName && $email && $username && $password) {
-            $sql = "INSERT INTO users (firstName, lastName, email, username, password) ";
-            $sql .= "VALUES ('$fistName', '$lastName', '$email', '$username', '$password')";
+            $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
+            $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
             $result = mysqli_query($db, $sql);
         }
         else {
             exit($REGISTRATION_ERROR_MSG);
         }
+        header("location: login.php");
     }
     db_disconnect($db);
 ?>
@@ -34,7 +37,7 @@
     <main>
         <div id="formContainer">
         <h1>Sign Up</h1>
-        <form action="registration.html" method="get" onsubmit="return validate();">
+        <form action="registration.php" method="post" onsubmit="return validate();">
 
             <div class="textInputContainer">
                 <label for="firstName">First Name</label>
