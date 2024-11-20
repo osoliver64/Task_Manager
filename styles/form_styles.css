@@ -6,7 +6,7 @@
 }
 
 html {
-    background-color: rgb(50, 50, 50);
+    background-color: #CCCCCC;
 }
 
 /* Center the body */
@@ -32,12 +32,12 @@ form {
 }
 
 /* Margin and font size of main header */
-#formContainer h1 {
+.formContainer h1 {
     margin-top: 15px;
     font-size: 40px;
 }
 
-#formContainer {
+.formContainer {
     width: 500px;
 }
 
@@ -61,12 +61,17 @@ form {
 .warning {
     color: red;
     font-size: 13px;
+    margin-left: 3px;
+    vertical-align: top;
+    margin-bottom: 8px;
 }
 
 /* Styling for error markers */
 .errorMarker {
     width: 16px;
     margin-left: 5px;
+    vertical-align: middle;
+    margin-bottom: 8px;
 }
 
 /* Styling for form buttons */
@@ -112,7 +117,7 @@ button[type="reset"] {
         margin-left: 10px;
     }
     /* Decrease font-size of main header */
-    #formContainer h1 {
+    .formContainer h1 {
         font-size: 35px;
     }
 }

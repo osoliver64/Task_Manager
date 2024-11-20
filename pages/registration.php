@@ -35,7 +35,7 @@
 </head>
 <body>
     <main>
-        <div id="formContainer">
+        <div class="formContainer">
         <h1>Sign Up</h1>
         <form action="registration.php" method="post" onsubmit="return validate();">
 
@@ -69,7 +69,7 @@
                 <input type="password" name="retype" id="retype" placeholder="Re-type password">
             </div>
 
-            <p><a href="login.html">Already have an account? Log in here.</a></p>
+            <p><a href="login.php">Already have an account? Log in here.</a></p>
 
             <div class="formButtonsContainer">
                 <button id="registerSubmit" class="submit" type="submit">Sign-Up</button>
