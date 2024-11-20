@@ -1,3 +1,11 @@
+<?php 
+    // session_start();
+
+    
+
+?>
+
+
 <!-- Side bar for navigating for when user in logged into site -->
 
 <!-- 'Button' to expand side bar (only visable when side bar is colapsed) -->

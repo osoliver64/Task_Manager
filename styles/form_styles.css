@@ -72,6 +72,7 @@ form {
     margin-left: 5px;
     vertical-align: middle;
     margin-bottom: 8px;
+    display: inline;
 }
 
 /* Styling for form buttons */
@@ -97,6 +98,9 @@ button[type="reset"] {
     margin-left: 15px;
 }
 
+.signInLink {
+    font-size: 12px;
+}
 
 /* Media query for small screens */
 @media (max-width: 500px) {

@@ -57,9 +57,11 @@
                 <input type="password" name="loginPassword" id="loginPassword" placeholder="Password">
             </div>
 
-            <p><a href="registration.php">Click here to sign-up</a></p>
-
-            <button id="loginSubmit" class="submit" type="submit">Log-In</button>
+            <p><a href="registration.php" class="signInLink">Click here to sign-up</a></p>
+            
+            <div class="formButtonsContainer">
+                <button id="loginSubmit" class="submit" type="submit">Log-In</button>
+            </div>
 
         </form>
 
