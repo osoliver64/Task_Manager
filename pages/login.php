@@ -13,20 +13,16 @@
             $loginQuery = "SELECT user_id FROM user ";
             $loginQuery .= "WHERE username = '$username' AND password = '$password'";
 
-            $loginResultSet = mysli_query($db, $loginQuery);
+            $loginResultSet = mysqli_query($db, $loginQuery);
+            $rowCount = mysqli_num_rows($loginResultSet);
 
-            if ($loginResultSet != 0) {
-                $loginResult = mysql_fetch_assoc($loginResultSet);
-                $userId = $loginResult['user_id'];
+            if ($rowCount != 0) {
+                $loginResult = mysqli_fetch_assoc($loginResultSet);
+                $userId = $loginResult["user_id"];
 
                 $_SESSION["userId"] = $userId;
+                header("location: index.php");
             }
-
-            
-
-            
-            
-    
         }
         else {
             exit($LOGIN_ERROR_MSG);
@@ -49,7 +45,7 @@
     <main>
         <div class="formContainer">
         <h1>Sign Up</h1>
-        <form action="login.html" method="post" onsubmit="return login();">
+        <form action="login.php" method="post" onsubmit="return login();">
 
             <div class="textInputContainer">
                 <label for="username">User Name</label>
