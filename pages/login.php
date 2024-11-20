@@ -1,6 +1,39 @@
 
 <?php
+    require_once("../private/db_functions.php");
+    session_start();
+    $db = db_connect();
+    $LOGIN_ERROR_MSG = 'Error. Please fill in all form fields';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = $_POST['loginUsername'];
+        $password = $_POST['loginPassword'];
+
+        if ($username && $password) {
+            $loginQuery = "SELECT user_id FROM user ";
+            $loginQuery .= "WHERE username = '$username' AND password = '$password'";
+
+            $loginResultSet = mysli_query($db, $loginQuery);
+
+            if ($loginResultSet != 0) {
+                $loginResult = mysql_fetch_assoc($loginResultSet);
+                $userId = $loginResult['user_id'];
+
+                $_SESSION["userId"] = $userId;
+            }
+
+            
+
+            
+            
     
+        }
+        else {
+            exit($LOGIN_ERROR_MSG);
+        }
+    }
+
+
 ?>
 
 <!DOCTYPE html>

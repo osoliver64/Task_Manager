@@ -11,7 +11,21 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        
+
         if ($firstName && $lastName && $email && $username && $password) {
+
+            
+            // Pull matching usernames from database
+            // $sqlTakenUsernames = "SELECT username FROM user WHERE username = '$username'";
+            // $takenUsernames = mysqli_query($db, $sqlTakenUsernames);
+            // if ($takenUsernames != 0) {
+            //     INSERT QUERY (FROM BELOW)
+            // }
+            // else {
+            //      CONNECT TO JAVASCRIPT TO INSERT USERNAME TAKEN MESSAGE
+            // }
+
             $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
             $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
             $result = mysqli_query($db, $sql);
