@@ -38,7 +38,7 @@ form {
 }
 
 .formContainer {
-    width: 500px;
+    width: 40vw;
 }
 
 /* Styling for text inputs */
@@ -72,7 +72,6 @@ form {
     margin-left: 5px;
     vertical-align: middle;
     margin-bottom: 8px;
-    display: inline;
 }
 
 /* Styling for form buttons */
@@ -102,11 +101,21 @@ button[type="reset"] {
     font-size: 12px;
 }
 
+@media (max-width: 700px) {
+    .formContainer {
+        width: 70vw;
+    }
+}
+
 /* Media query for small screens */
 @media (max-width: 500px) {
     /* Decrease left margin of the body */
     body {
-        margin-left: 20px;
+        margin-left: 0px;
+    }
+    .formContainer {
+        margin-left: 0;
+        width: 95vw;
     }
     /* Right margin for text inputs */
     .textInputContainer input {
@@ -116,10 +125,6 @@ button[type="reset"] {
 
 /* Media query for smaller screens */
 @media (max-width: 300px) {
-    /* Decrease left margin of the body */
-    body {
-        margin-left: 10px;
-    }
     /* Decrease font-size of main header */
     .formContainer h1 {
         font-size: 35px;

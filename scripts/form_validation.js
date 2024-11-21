@@ -226,7 +226,7 @@ function validate() {
         var firstNameErrorMarker = createErrorMarker("firstNameErrorMarker");
 
         // Insert error marker element adjacent to input field
-        firstNameLabel.insertAdjacentElement("afterend", firstNameErrorMarker);
+        firstNameLabel.insertAdjacentElement("beforeend", firstNameErrorMarker);
 
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(firstNameField, firstNameErrorMsg, "firstNameError", firstNameErrorMarker.id);
@@ -244,7 +244,7 @@ function validate() {
         var lastNameErrorMarker = createErrorMarker("lastNameErrorMarker");
 
         // Insert error marker element adjacent to input field
-        lastNameLabel.insertAdjacentElement("afterend", lastNameErrorMarker);
+        lastNameLabel.insertAdjacentElement("beforeend", lastNameErrorMarker);
 
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(lastNameField, lastNameErrorMsg, "lastNameError", lastNameErrorMarker.id);
@@ -262,7 +262,7 @@ function validate() {
         var emailErrorMarker = createErrorMarker("emailErrorMarker");
 
         // Insert error marker element adjacent to input field
-        emailLabel.insertAdjacentElement("afterend", emailErrorMarker);
+        emailLabel.insertAdjacentElement("beforeend", emailErrorMarker);
         
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(emailField, emailErrorMsg, "emailError", emailErrorMarker.id);
@@ -280,7 +280,7 @@ function validate() {
         var usernameErrorMarker = createErrorMarker("usernameErrorMarker");
 
         // Insert error marker element adjacent to input field
-        usernameLabel.insertAdjacentElement("afterend", usernameErrorMarker);
+        usernameLabel.insertAdjacentElement("beforeend", usernameErrorMarker);
         
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(usernameField, usernameErrorMsg, "usernameError", usernameErrorMarker.id);
@@ -298,7 +298,7 @@ function validate() {
         var passwordErrorMarker = createErrorMarker("passwordErrorMarker");
 
         // Insert error marker element adjacent to input field
-        passwordLabel.insertAdjacentElement("afterend", passwordErrorMarker);
+        passwordLabel.insertAdjacentElement("beforeend", passwordErrorMarker);
         
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(passwordField, passwordErrorMsg, "passwordError", passwordErrorMarker.id);
@@ -316,7 +316,7 @@ function validate() {
         let retypePasswordErrorMarker = createErrorMarker("retypePasswordErrorMarker");
 
         // Insert error marker element adjacent to input field
-        retypePasswordLabel.insertAdjacentElement("afterend", retypePasswordErrorMarker);
+        retypePasswordLabel.insertAdjacentElement("beforeend", retypePasswordErrorMarker);
         
         // Create event listeners to insert error message when input is 'focused' on and removed when 'unfocused'
         createFocusBlurEventListeners(retypePasswordField, retypePasswordErrorMsg, "retypePasswordError", retypePasswordErrorMarker.id);
