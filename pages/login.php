@@ -3,7 +3,8 @@
     require_once("../private/db_functions.php");
     session_start();
     $db = db_connect();
-    $LOGIN_ERROR_MSG = 'Error. Please fill in all form fields';
+    $loginErrorMsg = "Error. Please fill in all form fields";
+    $loginError = "";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['loginUsername'];
@@ -16,7 +17,7 @@
             $loginResultSet = mysqli_query($db, $loginQuery);
             $rowCount = mysqli_num_rows($loginResultSet);
 
-            if ($rowCount != 0) {
+            if ($rowCount !== 0) {
                 $loginResult = mysqli_fetch_assoc($loginResultSet);
                 $userId = $loginResult["user_id"];
 
@@ -25,7 +26,7 @@
             }
         }
         else {
-            exit($LOGIN_ERROR_MSG);
+            $loginError = $loginErrorMsg;
         }
     }
 
@@ -38,6 +39,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/form_styles.css">
+    <script src="../scripts/form_validation.js" defer></script>
     <title>Task Manager: Log In</title>
 </head>
 <body>
@@ -45,10 +47,10 @@
     <main>
         <div class="formContainer">
         <h1>Sign Up</h1>
-        <form action="login.php" method="post" onsubmit="return login();">
+        <form action="login.php" method="post" onsubmit="return validateLogin();">
 
             <div class="textInputContainer">
-                <label for="username">User Name</label>
+                <label for="loginUsername">User Name</label>
                 <input type="text" name="loginUsername" id="loginUsername" placeholder="User name">
             </div>
 
@@ -56,6 +58,8 @@
                 <label for="pass">Password</label>
                 <input type="password" name="loginPassword" id="loginPassword" placeholder="Password">
             </div>
+
+            <?= "<span class='warning' id='loginErrorMsg'>$loginError</span>" ?>
 
             <p><a href="registration.php" class="signInLink">Click here to sign-up</a></p>
             

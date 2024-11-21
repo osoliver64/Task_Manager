@@ -1,10 +1,10 @@
-// Name: Oliver O'Shea
-// Student Number: 040951929
-// Course: CST8285 321
-// Date: November 06/2024
-// Description: Form validation for Weekly Kitten Pictures Subscription
 
-// Form field elements
+
+//****************************************************************************
+// Registration Form Validation
+// ***************************************************************************
+
+// Get registration input field elements
 let emailField = document.getElementById("email");
 let usernameField = document.getElementById("username");
 let passwordField = document.getElementById("password");
@@ -12,6 +12,7 @@ let retypePasswordField = document.getElementById("retype");
 let firstNameField = document.getElementById("firstName");
 let lastNameField = document.getElementById("lastName");
 
+// Get registration input labels
 let firstNameLabel = document.getElementById("firstNameLabel");
 let lastNameLabel = document.getElementById("lastNameLabel");
 let emailLabel = document.getElementById("emailLabel");
@@ -20,7 +21,8 @@ let passwordLabel = document.getElementById("passwordLabel");
 let retypePasswordLabel = document.getElementById("retypeLabel");
 
 
-// Error messages for each necessary form field
+
+// Error messages for each registration input field
 let defaultMsg = "";
 let firstNameErrorMsg = "Must enter a first name";
 let lastNameErrorMsg = "Must enter a last name";
@@ -28,6 +30,8 @@ let emailErrorMsg = "Email address should be non-empty with the format xyx@xyz.x
 let usernameErrorMsg = "Username should be non-empty, and within 30 characters long";
 let passwordErrorMsg = "Password should be at least 8 characters, and must include a uppercase letter, lowercase letter, number and symbol";
 let retypePasswordErrorMsg = "Passwords do not match";
+
+
 
 
 // Method to create and return new error element with class="warning"
@@ -101,6 +105,18 @@ function clearAllErrors() {
 // Remove all error messages when reset button is clicked
 document.querySelector('button[type="reset"]').addEventListener("click", clearAllErrors);
 
+usernameTakenError = document.getElementById("usernameTakenError");
+document.querySelector("button[type='reset']").addEventListener("click", function() {
+    usernameTakenError.remove();
+    clearAllErrors();
+    firstNameField.value = "";
+    lastNameField.value = "";
+    usernameField.value = "";
+    emailField.value = "";
+})
+
+
+
 
 // -------------------------------------------------------------------------------
 // Input validators
@@ -130,9 +146,11 @@ function validateUsername() {
 // Check that password is 8 or more characters
 function validatePassword() {
     let error = defaultMsg;
+    //** CHANGE THIS BACK FOR CORRECT VALIDATION */
     // Minimum of eight characters, at least: one uppercase letter, one lowercase letter, one number and one special character
-    let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    if (!passwordRegEx.test(passwordField.value)) {
+    // let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    // if (!passwordRegEx.test(passwordField.value)) {
+    if (passwordField.value.length < 8) {
         error = passwordErrorMsg;
     }
     return error;
@@ -329,4 +347,24 @@ function validate() {
         usernameField.value = usernameField.value.toLowerCase();
     }
     return valid;
+}
+
+
+//********************************************************************************
+// Login Form Validation
+//********************************************************************************
+
+function validateLogin() {
+    let loginUsername = document.getElementById("loginUsername");
+    let loginPassword = document.getElementById("password");
+    let loginValid = true;
+    let loginErrorMsg = "Please fill in username and password";
+    let loginError = document.createElement("span");
+    loginError.innerHTML = loginErrorMsg;
+
+    if (loginUsername.value === "" || loginPassword.value === "") {
+        loginPassword.insertAdjacentElement("afterend", loginErrorMsg);
+        loginValid = false;
+    }
+    return loginValid;
 }

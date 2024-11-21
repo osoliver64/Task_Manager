@@ -2,40 +2,62 @@
 
     require_once("../private/db_functions.php");
     $db = db_connect();
-    $REGISTRATION_ERROR_MSG = 'Error. Please enter fill in all form fields';
+    $REGISTRATION_ERROR_MSG = "Error. Please enter fill in all form fields.";
+    $usernameErrorMsg = "Username taken. Please try another.";
+    $usernameError = "";
+    $usernameNotTaken = true;
+    
+    $firstName = "";
+    $lastName = "";
+    $username = "";
+    $email = "";
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        if (isset($_POST['firstName']) &&
-        isset($_POST['lastName']) &&
-        isset($_POST['email']) &&
-        isset($_POST['password']) &&
-        isset($_POST['retype']) &&
-        isset($_POST['submit'])) {
-            $firstName = trim($_POST['firstName']);
-            $lastName = trim($_POST['lastName']);
-            $email = trim($_POST['email']);
-            $username = trim($_POST['username']);
-            $password = $_POST['password'];
+        if (isset($_POST["firstName"]) &&
+        isset($_POST["lastName"]) &&
+        isset($_POST["email"]) &&
+        isset($_POST["password"]) &&
+        isset($_POST["retype"]) &&
+        isset($_POST["submit"])) {
+            $firstName = trim($_POST["firstName"]);
+            $lastName = trim($_POST["lastName"]);
+            $email = trim($_POST["email"]);
+            $username = trim($_POST["username"]);
+            $password = $_POST["password"];
             // Pull matching usernames from database
             $sqlTakenUsernames = "SELECT username FROM user WHERE username = '$username'";
             $takenUsernames = mysqli_query($db, $sqlTakenUsernames);
-            if ($takenUsernames === 0) {
+            if (mysqli_num_rows($takenUsernames) == 0) {
                 $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
                 $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
                 $result = mysqli_query($db, $sql);
+                db_disconnect($db);
+                header("location: login.php");
+                exit();
             }
             else {
-                //CONNECT TO JAVASCRIPT TO INSERT USERNAME TAKEN MESSAGE
+                $usernameError = $usernameErrorMsg;
+                $usernameNotTaken = false;
             }
         }
         else {
             exit($REGISTRATION_ERROR_MSG);
         }
-        header("location: login.php");
+        
     }
-    db_disconnect($db);
+    // If request method == GET
+    else {
+        // Clear username error message
+        $usernameErrorMsg = "";
+        $usernameNotTaken = true;
+    }
 ?>
+<script>
+    function usernameNotTaken() {
+        return $usernameNotTaken;
+    }
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,26 +72,29 @@
     <main>
         <div class="formContainer">
         <h1>Sign Up</h1>
-        <form action="registration.php" id="registrationForm" method="post" onsubmit="return validate()">
+        <form action="registration.php" id="registrationForm" method="post" onsubmit="return validate() && usernameNotTaken()">
 
         <div class="textInputContainer">
                 <label for="firstName" id="firstNameLabel">First Name</label>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" <?= "value='$firstName'";?>>
             </div>
 
             <div class="textInputContainer">
                 <label for="lastName" id="lastNameLabel">Last name</label>
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" <?= "value='$lastName'" ?>>
             </div>
 
             <div class="textInputContainer">
                 <label for="email" id="emailLabel">Email Address</label>
-                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="text" name="email" id="email" placeholder="Email" <?= "value='$email'" ?>>
             </div>
 
             <div class="textInputContainer">
                 <label for="username" id="usernameLabel">User Name</label>
-                <input type="text" name="username" id="username" placeholder="User name">
+                <input type="text" name="username" id="username" placeholder="User name" <?= "value='$username'" ?>>
+                <?php if ($usernameErrorMsg) {
+                    echo "<span class='warning' id='usernameTakenError'>$usernameErrorMsg</span>";
+                } ?>
             </div>
 
             <div class="textInputContainer">
@@ -95,3 +120,5 @@
     </main>
 </body>
 </html>
+
+<?php db_disconnect($db); ?>

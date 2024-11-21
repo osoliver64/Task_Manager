@@ -55,6 +55,7 @@ form {
 /* Make text fields 90% width */
 .textInputContainer {
     width: 90%;
+    max-width: 500px;
 }
 
 /* Styling for error warning messages */
@@ -128,5 +129,21 @@ button[type="reset"] {
     /* Decrease font-size of main header */
     .formContainer h1 {
         font-size: 35px;
+    }
+}
+
+@media (max-width: 200px) {
+    button {
+        display: inline-block;
+        margin-left: 11vw;
+    }
+    .warning {
+        margin-left: 5px;
+        flex-shrink: 1;
+    }
+
+    .formContainer {
+        width: 90%;
+        margin-left: 5px;
     }
 }
