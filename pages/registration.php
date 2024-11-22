@@ -87,8 +87,11 @@
         <form action="registration.php" id="registrationForm" method="post" onsubmit="return validate() && usernameNotTaken()">
 
         <div class="textInputContainer">
+                <!-- First name input label -->
                 <label for="firstName" id="firstNameLabel">First Name</label>
+                <!-- First name input field -->
                 <input type="text" name="firstName" id="firstName" autocomplete="on" placeholder="First Name" value="<?php
+                // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($firstName);
                 }
@@ -99,8 +102,11 @@
             </div>
 
             <div class="textInputContainer">
+                <!-- Last name input label -->
                 <label for="lastName" id="lastNameLabel">Last name</label>
+                <!-- Last name input field -->
                 <input type="text" name="lastName" id="lastName" placeholder="Last Name" value="<?php
+                // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($lastName);
                 }
@@ -111,8 +117,11 @@
             </div>
 
             <div class="textInputContainer">
+                <!-- Email input label -->
                 <label for="email" id="emailLabel">Email Address</label>
+                <!-- Email input field -->
                 <input type="text" name="email" id="email" placeholder="Email" value="<?php
+                // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($email);
                 }
@@ -123,8 +132,11 @@
             </div>
 
             <div class="textInputContainer">
+                <!-- Username input label -->
                 <label for="username" id="usernameLabel">User Name</label>
+                <!-- Username input field -->
                 <input type="text" name="username" id="username" placeholder="User name" value="<?php
+                // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($username);
                 }
@@ -132,8 +144,10 @@
                     echo '';
                 }
                 ?>">
+                <!-- Username taken error message -->
                 <span class='warning' id='usernameTakenError'>
                 <?php 
+                    
                     if ($usernameErrorMsg) {
                     echo $usernameErrorMsg;
                 } ?>

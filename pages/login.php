@@ -77,8 +77,11 @@
         <form action="login.php" method="post" onsubmit="return validateLogin() && isUserValid();">
 
             <div class="textInputContainer">
+                <!-- Username input label -->
                 <label for="loginUsername">User Name</label>
+                <!-- Username input field -->
                 <input type="text" name="loginUsername" id="loginUsername" placeholder="User name" value="<?php
+                // If user has already tried to submit, fill value with previously entered username
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($username);
                 }
