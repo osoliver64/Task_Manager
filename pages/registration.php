@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <?php
-
+    // Import database functions
     require_once("../private/db_functions.php");
+    // Connect to database
     $db = db_connect();
-    $REGISTRATION_ERROR_MSG = "Error. Please enter fill in all form fields.";
+
+    // Error message if user bypasses JS validation
+    $registrationErrorMsg = "Error. Please enter fill in all form fields.";
+    // Error message for when username is taken by another user
     $usernameErrorMsg = "Username taken. Please try another.";
+    // Variable which will be empty if no error, and have value of error message if error
     $usernameError = "";
+    // Boolean to track if username entered is taken by another user or not
     $usernameNotTaken = true;
 
+    // If form is submitted
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        // If all fields are non-emty
         if (!isset($_POST["reset"]) &&
         (isset($_POST["firstName"]) &&
         isset($_POST["lastName"]) &&
@@ -16,15 +24,18 @@
         isset($_POST["password"]) &&
         isset($_POST["retype"]) &&
         isset($_POST["submit"]))) {
+            // Save form input values in variables
             $firstName = trim($_POST["firstName"]);
             $lastName = trim($_POST["lastName"]);
             $email = trim($_POST["email"]);
             $username = trim($_POST["username"]);
             $password = $_POST["password"];
-            // Pull matching usernames from database
+            // Pull matching usernames from database if any
             $sqlTakenUsernames = "SELECT username FROM user WHERE username = '$username'";
             $takenUsernames = mysqli_query($db, $sqlTakenUsernames);
+            // If username is not taken already
             if (mysqli_num_rows($takenUsernames) == 0) {
+                // Insert new user information to database
                 $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
                 $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
                 $result = mysqli_query($db, $sql);
@@ -38,7 +49,7 @@
             }
         }
         else {
-            exit($REGISTRATION_ERROR_MSG);
+            exit($registrationErrorMsg);
         }
         
     }
