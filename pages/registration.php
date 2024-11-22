@@ -95,9 +95,6 @@
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($firstName);
                 }
-                else {
-                    echo '';
-                }
                 ?>">
             </div>
 
@@ -109,9 +106,6 @@
                 // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($lastName);
-                }
-                else {
-                    echo '';
                 }
                 ?>">
             </div>
@@ -125,9 +119,6 @@
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($email);
                 }
-                else {
-                    echo '';
-                }
                 ?>">
             </div>
 
@@ -139,9 +130,6 @@
                 // If user has already tried to submit, fill value with previously entered value
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo htmlspecialchars($username);
-                }
-                else {
-                    echo '';
                 }
                 ?>">
                 <!-- Username taken error message -->
