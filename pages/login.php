@@ -92,15 +92,18 @@
             </div>
 
             <div class="textInputContainer">
+                <!-- Password input label -->
                 <label for="loginPassword">Password</label>
+                <!-- Password input field -->
                 <input type="password" name="loginPassword" id="loginPassword" placeholder="Password">
             </div>
-
+                <!-- Error message for incorrect username or password -->
             <?= "<span class='warning' id='loginErrorMsg'>$loginError</span>" ?>
-
+                <!-- Link to registration page (registration.php) -->
             <p><a href="registration.php" class="signInLink">Click here to sign-up</a></p>
             
             <div class="formButtonsContainer">
+                <!-- Submit button to log in -->
                 <button id="loginSubmit" class="submit" type="submit">Log-In</button>
             </div>
 

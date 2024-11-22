@@ -143,19 +143,25 @@
             </div>
 
             <div class="textInputContainer">
+                <!-- Password input label -->
                 <label for="password" id="passwordLabel">Password</label>
+                <!-- Password input field -->
                 <input type="password" name="password" id="password" placeholder="Password">
             </div>
         
             <div class="textInputContainer">
+                <!-- Re-type password input label -->
                 <label for="retype" id="retypeLabel">Re-type Password</label>
+                <!-- Re-type password input field -->
                 <input type="password" name="retype" id="retype" placeholder="Re-type password">
             </div>
-
+            <!-- Link to login page (login.php) -->
             <p><a href="login.php" class="signInLink">Already have an account? Log in here.</a></p>
 
             <div class="formButtonsContainer">
+                <!-- Submit button to register -->
                 <button id="registerSubmit" name="submit" class="submit" type="submit">Sign-Up</button>
+                <!-- Reset form button (clears form errors and input values) -->
                 <button id="registerReset" type="reset" name="reset">Reset</button>
             </div>
 
@@ -166,7 +172,7 @@
 </body>
 </html>
 
-
+<!-- Disconnect from database -->
 <?php 
     db_disconnect($db); 
 ?>
