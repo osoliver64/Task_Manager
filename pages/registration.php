@@ -8,11 +8,6 @@
     $usernameError = "";
     $usernameNotTaken = true;
 
-    $firstName = "";
-    $lastName = "";
-    $username = "";
-    $email = "";
-
     echo '<script>console.log(' . json_encode($_SERVER["REQUEST_METHOD"]) . ');</script>';
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (!isset($_POST["reset"]) &&
@@ -156,4 +151,7 @@
 </body>
 </html>
 
-<?php db_disconnect($db); ?>
+
+<?php 
+    db_disconnect($db); 
+?>

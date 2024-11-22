@@ -20,12 +20,6 @@ form {
     margin-top: 20px;
 }
 
-/* Center the form container */
-/* #formContainer {
-    max-width: 500px;
-    margin: 0 auto;
-} */
-
 /* Make input labels apear above inputs */
 .textInputContainer label {
     display: block;
