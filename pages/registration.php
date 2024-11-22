@@ -8,7 +8,6 @@
     $usernameError = "";
     $usernameNotTaken = true;
 
-    echo '<script>console.log(' . json_encode($_SERVER["REQUEST_METHOD"]) . ');</script>';
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (!isset($_POST["reset"]) &&
         (isset($_POST["firstName"]) &&
@@ -49,8 +48,6 @@
         $usernameErrorMsg = "";
         $usernameNotTaken = true;
     }
-
-
 ?>
 <!-- Return to the form whether username entered is taken by another user -->
 <script>
@@ -77,7 +74,7 @@
                 <label for="firstName" id="firstNameLabel">First Name</label>
                 <input type="text" name="firstName" id="firstName" autocomplete="on" placeholder="First Name" value="<?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    echo htmlspecialchars($firstName);//**** */
+                    echo htmlspecialchars($firstName);
                 }
                 else {
                     echo '';

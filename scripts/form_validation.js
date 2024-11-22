@@ -104,23 +104,18 @@ function clearAllErrors() {
 
 // Remove all error messages when reset button is clicked
 // document.querySelector('button[type="reset"]').addEventListener("click", clearAllErrors);
-
 usernameTakenError = document.getElementById("usernameTakenError");
 document.querySelector("button[type='reset']").addEventListener("click", function(event) {
-    console.log("clearing run");
     event.preventDefault();
     if (usernameTakenError) {
         usernameTakenError.textContent = "";
     }
 
-    
-    console.log(firstNameField.value);
     clearAllErrors();
     firstNameField.value = "";
     lastNameField.value = "";
     usernameField.value = "";
     emailField.value = "";
-    console.log(firstNameField.value);
 })
 
 
@@ -357,24 +352,3 @@ function validate() {
     return valid;
 }
 
-
-
-
-//********************************************************************************
-// Login Form Validation
-//********************************************************************************
-
-function validateLogin() {
-    let loginUsername = document.getElementById("loginUsername");
-    let loginPassword = document.getElementById("password");
-    let loginValid = true;
-    let loginErrorMsg = "Please fill in username and password";
-    let loginError = document.createElement("span");
-    loginError.innerHTML = loginErrorMsg;
-
-    if (loginUsername.value === "" || loginPassword.value === "") {
-        loginPassword.insertAdjacentElement("afterend", loginErrorMsg);
-        loginValid = false;
-    }
-    return loginValid;
-}

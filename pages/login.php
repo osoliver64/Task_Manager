@@ -1,16 +1,17 @@
-
+<!DOCTYPE html>
 <?php
     require_once("../private/db_functions.php");
     session_start();
     $db = db_connect();
-    $loginErrorMsg = "Error. Please fill in all form fields";
+    $loginErrorMsg = "Incorrect username or password";
     $loginError = "";
+    $validUser = true;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $username = $_POST['loginUsername'];
-        $password = $_POST['loginPassword'];
+        if (isset($_POST['loginUsername']) && isset($_POST["loginPassword"])) {
+            $username = $_POST['loginUsername'];
+            $password = $_POST['loginPassword'];
 
-        if ($username && $password) {
             $loginQuery = "SELECT user_id FROM user ";
             $loginQuery .= "WHERE username = '$username' AND password = '$password'";
 
@@ -24,22 +25,28 @@
                 $_SESSION["userId"] = $userId;
                 header("location: index.php");
             }
+            else {
+                $validUser = false;
+                $loginError = $loginErrorMsg;
+            }
         }
         else {
-            $loginError = $loginErrorMsg;
+            $validUser = false;
         }
     }
-
-
 ?>
+<script>
+    function isUserValid() {
+        return $validUser;
+    }
+</script>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/form_styles.css">
-    <script src="../scripts/form_validation.js" defer></script>
+    <script src="../scripts/loginValidation.js" defer></script>
     <title>Task Manager: Log In</title>
 </head>
 <body>
@@ -47,15 +54,22 @@
     <main>
         <div class="formContainer">
         <h1>Sign Up</h1>
-        <form action="login.php" method="post" onsubmit="return validateLogin();">
+        <form action="login.php" method="post" onsubmit="return validateLogin() && isUserValid();">
 
             <div class="textInputContainer">
                 <label for="loginUsername">User Name</label>
-                <input type="text" name="loginUsername" id="loginUsername" placeholder="User name">
+                <input type="text" name="loginUsername" id="loginUsername" placeholder="User name" value="<?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo htmlspecialchars($username);
+                }
+                else {
+                    echo '';
+                }
+                ?>">
             </div>
 
             <div class="textInputContainer">
-                <label for="pass">Password</label>
+                <label for="loginPassword">Password</label>
                 <input type="password" name="loginPassword" id="loginPassword" placeholder="Password">
             </div>
 
