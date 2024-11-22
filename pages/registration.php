@@ -24,7 +24,7 @@
         isset($_POST["password"]) &&
         isset($_POST["retype"]) &&
         isset($_POST["submit"]))) {
-            // Save form input values in variables
+            // Save form input values in variables after trimming
             $firstName = trim($_POST["firstName"]);
             $lastName = trim($_POST["lastName"]);
             $email = trim($_POST["email"]);
@@ -35,19 +35,24 @@
             $takenUsernames = mysqli_query($db, $sqlTakenUsernames);
             // If username is not taken already
             if (mysqli_num_rows($takenUsernames) == 0) {
-                // Insert new user information to database
+                // Query to insert new user information to database
                 $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
                 $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
+                // Run the insert query
                 $result = mysqli_query($db, $sql);
+                // Disconnect from database
                 db_disconnect($db);
+                // Redirect to login in page and exit
                 header("location: login.php");
                 exit();
             }
+            // If username is already in database (ie. taken by another user)
             else {
                 $usernameError = $usernameErrorMsg;
                 $usernameNotTaken = false;
             }
         }
+        // If username and password not entered
         else {
             exit($registrationErrorMsg);
         }
@@ -60,7 +65,7 @@
         $usernameNotTaken = true;
     }
 ?>
-<!-- Return to the form whether username entered is taken by another user -->
+<!-- Return whether username entered is taken by another user or not -->
 <script>
     function usernameNotTaken() {
         return $usernameNotTaken;
