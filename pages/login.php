@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <?php
+    // Import database funtions
     require_once("../private/db_functions.php");
+    // Start session
     session_start();
+    // Connect to database
     $db = db_connect();
+    // Login error message for incorrect username or password
     $loginErrorMsg = "Incorrect username or password";
+    // Login error variable, will contain error message if error and empty if no error
     $loginError = "";
+    // Boolean to track if user credentials match a valid user
     $validUser = true;
-
+    // If method is post
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // If username and password inputs have been submitted
         if (isset($_POST['loginUsername']) && isset($_POST["loginPassword"])) {
+            // Store username and password values in variables
             $username = $_POST['loginUsername'];
             $password = $_POST['loginPassword'];
 
+            // Query to get user's ID if the username and password match a user
             $loginQuery = "SELECT user_id FROM user ";
             $loginQuery .= "WHERE username = '$username' AND password = '$password'";
 
+            // Run query and return result set
             $loginResultSet = mysqli_query($db, $loginQuery);
+            // Access number of rows returned, should be 0 or 1
             $rowCount = mysqli_num_rows($loginResultSet);
 
+            // If number of rows is not zero (ie. if user exists in database)
             if ($rowCount !== 0) {
+                // Convert result set to associative array
                 $loginResult = mysqli_fetch_assoc($loginResultSet);
+                // Grab user ID from result set
                 $userId = $loginResult["user_id"];
 
+                // Store user id in session variable
                 $_SESSION["userId"] = $userId;
+                // Redirect to website main page
                 header("location: index.php");
             }
+            // if no users in database match username and password
             else {
                 $validUser = false;
                 $loginError = $loginErrorMsg;
             }
         }
+        // If username or password have not been entered
         else {
             $validUser = false;
         }
     }
 ?>
+
 <script>
+    // Return if the user is valid (if exists in database)
     function isUserValid() {
         return $validUser;
     }
