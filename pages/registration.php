@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
     require_once("../private/db_functions.php");
@@ -6,20 +7,21 @@
     $usernameErrorMsg = "Username taken. Please try another.";
     $usernameError = "";
     $usernameNotTaken = true;
-    
+
     $firstName = "";
     $lastName = "";
     $username = "";
     $email = "";
 
+    echo '<script>console.log(' . json_encode($_SERVER["REQUEST_METHOD"]) . ');</script>';
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-        if (isset($_POST["firstName"]) &&
+        if (!isset($_POST["reset"]) &&
+        (isset($_POST["firstName"]) &&
         isset($_POST["lastName"]) &&
         isset($_POST["email"]) &&
         isset($_POST["password"]) &&
         isset($_POST["retype"]) &&
-        isset($_POST["submit"])) {
+        isset($_POST["submit"]))) {
             $firstName = trim($_POST["firstName"]);
             $lastName = trim($_POST["lastName"]);
             $email = trim($_POST["email"]);
@@ -52,14 +54,16 @@
         $usernameErrorMsg = "";
         $usernameNotTaken = true;
     }
+
+
 ?>
+<!-- Return to the form whether username entered is taken by another user -->
 <script>
     function usernameNotTaken() {
         return $usernameNotTaken;
     }
 </script>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,25 +80,56 @@
 
         <div class="textInputContainer">
                 <label for="firstName" id="firstNameLabel">First Name</label>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name" <?= "value='$firstName'";?>>
+                <input type="text" name="firstName" id="firstName" autocomplete="on" placeholder="First Name" value="<?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo htmlspecialchars($firstName);//**** */
+                }
+                else {
+                    echo '';
+                }
+                ?>">
             </div>
 
             <div class="textInputContainer">
                 <label for="lastName" id="lastNameLabel">Last name</label>
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name" <?= "value='$lastName'" ?>>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" value="<?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo htmlspecialchars($lastName);
+                }
+                else {
+                    echo '';
+                }
+                ?>">
             </div>
 
             <div class="textInputContainer">
                 <label for="email" id="emailLabel">Email Address</label>
-                <input type="text" name="email" id="email" placeholder="Email" <?= "value='$email'" ?>>
+                <input type="text" name="email" id="email" placeholder="Email" value="<?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo htmlspecialchars($email);
+                }
+                else {
+                    echo '';
+                }
+                ?>">
             </div>
 
             <div class="textInputContainer">
                 <label for="username" id="usernameLabel">User Name</label>
-                <input type="text" name="username" id="username" placeholder="User name" <?= "value='$username'" ?>>
-                <?php if ($usernameErrorMsg) {
-                    echo "<span class='warning' id='usernameTakenError'>$usernameErrorMsg</span>";
+                <input type="text" name="username" id="username" placeholder="User name" value="<?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo htmlspecialchars($username);
+                }
+                else {
+                    echo '';
+                }
+                ?>">
+                <span class='warning' id='usernameTakenError'>
+                <?php 
+                    if ($usernameErrorMsg) {
+                    echo $usernameErrorMsg;
                 } ?>
+                </span>
             </div>
 
             <div class="textInputContainer">
@@ -111,7 +146,7 @@
 
             <div class="formButtonsContainer">
                 <button id="registerSubmit" name="submit" class="submit" type="submit">Sign-Up</button>
-                <button id="registerReset" type="reset">Reset</button>
+                <button id="registerReset" type="reset" name="reset">Reset</button>
             </div>
 
         </form>

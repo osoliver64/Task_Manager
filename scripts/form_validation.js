@@ -103,16 +103,24 @@ function clearAllErrors() {
 }
 
 // Remove all error messages when reset button is clicked
-document.querySelector('button[type="reset"]').addEventListener("click", clearAllErrors);
+// document.querySelector('button[type="reset"]').addEventListener("click", clearAllErrors);
 
 usernameTakenError = document.getElementById("usernameTakenError");
-document.querySelector("button[type='reset']").addEventListener("click", function() {
-    usernameTakenError.remove();
+document.querySelector("button[type='reset']").addEventListener("click", function(event) {
+    console.log("clearing run");
+    event.preventDefault();
+    if (usernameTakenError) {
+        usernameTakenError.textContent = "";
+    }
+
+    
+    console.log(firstNameField.value);
     clearAllErrors();
     firstNameField.value = "";
     lastNameField.value = "";
     usernameField.value = "";
     emailField.value = "";
+    console.log(firstNameField.value);
 })
 
 
@@ -348,6 +356,8 @@ function validate() {
     }
     return valid;
 }
+
+
 
 
 //********************************************************************************
