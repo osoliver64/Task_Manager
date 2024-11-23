@@ -1,6 +1,5 @@
 <?php
 session_start();
-include '../private/db_connection.php';
 require_once("../private/db_functions.php");
 $conn = db_connect();
 

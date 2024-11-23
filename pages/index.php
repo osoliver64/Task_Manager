@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
     session_start();
 
@@ -31,7 +32,7 @@
     db_disconnect($db);
 ?>
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

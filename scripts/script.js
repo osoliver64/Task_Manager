@@ -32,7 +32,7 @@ function saveTask() {
     formData.append("dueDate", dueDate);
 
     // Usar fetch para enviar datos sin redireccionar
-    fetch("pages/add_task.php", {
+    fetch("../pages/add_task.php", {
         method: "POST",
         body: formData,
     })
@@ -55,7 +55,7 @@ function saveTask() {
 
 // Function to fetch tasks
 function fetchTasks() {
-    fetch("pages/fetch_tasks.php")
+    fetch("../pages/fetch_tasks.php")
         .then(response => response.json())
         .then(data => {
             tasks = data;
@@ -85,7 +85,7 @@ function renderTasks() {
 
 // Function to move a task
 function moveTask(id, status) {
-    fetch("pages/move_task.php", {
+    fetch("../pages/move_task.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, status }),
@@ -103,7 +103,8 @@ function moveTask(id, status) {
 
 // Function to delete a task
 function deleteTask(id) {
-    fetch("pages/delete_task.php", {
+    console.log("Delete task function started")
+    fetch("../pages/delete_task.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
