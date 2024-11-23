@@ -17,3 +17,16 @@ CREATE TABLE IF NOT EXISTS `user` (
     `password` VARCHAR(50) NOT NULL,
     PRIMARY KEY(`user_id`)
 );
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    priority ENUM('high', 'medium', 'low') DEFAULT 'medium',
+    due_date DATE NOT NULL,
+    status ENUM('pending', 'in-progress', 'completed') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);

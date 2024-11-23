@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
     session_start();
 
@@ -11,6 +10,7 @@
     require_once("../private/db_functions.php");
     $db = db_connect();
 
+    
     // Función para cargar las tareas al iniciar la página
     function fetchTasks($userId, $db) {
         $stmt = $db->prepare("SELECT id, title, category, priority, due_date, status FROM tasks WHERE user_id = ?");
@@ -32,7 +32,7 @@
     db_disconnect($db);
 ?>
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
