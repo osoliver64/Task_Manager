@@ -103,7 +103,6 @@ function moveTask(id, status) {
 
 // Function to delete a task
 function deleteTask(id) {
-    console.log("Delete task function started")
     fetch("../pages/delete_task.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -118,6 +117,7 @@ function deleteTask(id) {
             }
         })
         .catch(error => console.error("Error:", error));
+    location.reload();
 }
 
 // Fetch tasks on page load
