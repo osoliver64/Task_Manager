@@ -24,7 +24,6 @@
         $stmt->close();
         return $tasks;
     }
-
     // Obtener las tareas del usuario actual
     $userId = $_SESSION['userId'];
     $tasks = fetchTasks($userId, $db);
