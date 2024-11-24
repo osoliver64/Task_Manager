@@ -47,6 +47,7 @@
     <!-- Header section with a button to add a new task -->
     <header>
         <button id="addNewTaskButton" onclick="openTaskModal()">New Task</button>
+        <?php include "search.php" ?>
     </header>
     
     <!-- Sidebar section with links to different task statuses -->

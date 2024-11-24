@@ -49,6 +49,7 @@ function saveTask() {
         })
         .catch(error => {
             console.error("Error:", error);
+            console.error(error.message);
         });
 }
 
@@ -58,6 +59,7 @@ function fetchTasks() {
     fetch("../pages/fetch_tasks.php")
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             tasks = data;
             renderTasks();
         })

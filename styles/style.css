@@ -156,3 +156,15 @@ button {
 #taskForm button:hover {
     background-color: #ED9E59;
 }
+
+#searchBar {
+    height: 4vh;
+    width: 15vw;
+    border-radius: 25px;
+    padding: 5px;
+    min-width: 200px;
+}
+
+#searchButton {
+    height: 3vh;
+}

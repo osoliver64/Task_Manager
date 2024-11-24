@@ -34,7 +34,7 @@
             $sqlTakenUsernames = "SELECT username FROM user WHERE username = '$username'";
             $takenUsernames = mysqli_query($db, $sqlTakenUsernames);
             // If username is not taken already
-            if (mysqli_num_rows($takenUsernames) == 0) {
+            if (mysqli_num_rows($takenUsernames) === 0) {
                 // Query to insert new user information to database
                 $sql = "INSERT INTO user (firstName, lastName, email, username, password) ";
                 $sql .= "VALUES ('$firstName', '$lastName', '$email', '$username', '$password')";
