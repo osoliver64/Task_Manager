@@ -1,0 +1,77 @@
+/* Styling for side bar */
+/* Fix position to the left and top  */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #71b8e7;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(0); 
+    transition: transform 1s ease; 
+}
+
+/* Styling for sidebar main heading */
+/* Add bottom margin and color */
+#sidebar h1 {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+#colapseMenuIcon {
+    width: 30px;
+    padding: 0;
+    margin-top: 0;
+}
+
+
+#expandMenuIcon {
+    width: 30px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border-radius: 5px;
+}
+
+#sidebar.hidden {
+    transform: translateX(-250px);
+    transition: transform 1s ease;
+}
+
+#expandMenuIcon.hidden, #colapseMenuIcon.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#sidebarHeading {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Styling for the sidebar nav */
+/* Make sidebar nav elements appear vertically (column) with spacing between them */
+#sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Styling for sidebar navigation links */
+/* Adds padding, removes unerline, sets color, rounds edges */
+.navLink {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 5px;
+}
+
+/* Styling for when cursor hovering over sidebar navigation links */
+/* Change background color with a color change delay */
+.navLink:hover {
+    background-color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+
