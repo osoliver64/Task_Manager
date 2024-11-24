@@ -76,10 +76,7 @@
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['status'] === 'pending'): ?>
                             <div class="task <?= htmlspecialchars($task['priority']) ?>">
-                                <h3><?= htmlspecialchars($task['title']) ?></h3>
-                                <p><?= htmlspecialchars($task['category']) ?></p>
-                                <p>Due to: <?= htmlspecialchars($task['due_date']) ?></p>
-                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
+                            <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
                                 <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
                             </div>
                         <?php endif; ?>
