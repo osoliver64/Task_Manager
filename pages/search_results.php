@@ -24,21 +24,27 @@
 <body class="taskbarOpen innerSiteBody">    
     <?php include "side_bar.php"; ?>
 <main>
-    <h2 class="subHeading">Search Results:</h2>
-        <?php
-        if (!empty($_SESSION["searchResult"])) {
-            foreach ($_SESSION["searchResult"] as $task) {
-                ?>
-                <div class="task <?= $task['priority'] ?>">
-                <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
-                    <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
+    <div class="board">
+        <div class="column" id="pending">
+            <h1 class="subHeading">Search Results:</h1>
+                <div class="track-list">
+                    <?php
+                    if (!empty($_SESSION["searchResult"])) {
+                        foreach ($_SESSION["searchResult"] as $task) {
+                            ?>
+                            <div class="task <?= $task['priority'] ?>">
+                            <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
+                                <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
+                            </div>
+                            <?php
+                        }
+                    } else {
+                        echo "<h3>" . htmlspecialchars($noResultsFound) . "</h3>";
+                    }
+                    ?>
                 </div>
-                <?php
-            }
-        } else {
-            echo "<h3>" . htmlspecialchars($noResultsFound) . "</h3>";
-        }
-        ?>
+        </div>
+    </div>
 
 </main>
 </body>
