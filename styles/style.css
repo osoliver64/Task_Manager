@@ -195,11 +195,9 @@ button {
     .logo-container {
         display: none;
     }
-    #sidebar {
-        transform: translateX(-250px);
-        transition: transform 1s ease;
-    }
-    body.taskbarOpen {
-        margin-left: 0px;
+    
+    body {
+        margin-left: 10px;
     }
 }
+

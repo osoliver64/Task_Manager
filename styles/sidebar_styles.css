@@ -75,3 +75,16 @@
 }
 
 
+@media (max-width: 750px) {
+    .logo-container {
+        display: none;
+    }
+    
+    body {
+        margin-left: 10px !important;
+    }
+    #expandMenuIcon {
+        top: 20px;
+        left: 10px;
+    }
+}
