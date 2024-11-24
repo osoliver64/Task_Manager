@@ -24,16 +24,13 @@
 <body class="taskbarOpen innerSiteBody">    
     <?php include "side_bar.php"; ?>
 <main>
-    <h2>Search Results:</h2>
+    <h2 class="subHeading">Search Results:</h2>
         <?php
         if (!empty($_SESSION["searchResult"])) {
             foreach ($_SESSION["searchResult"] as $task) {
                 ?>
                 <div class="task <?= $task['priority'] ?>">
-                    <h3><?= htmlspecialchars($task['priority']) ?></h3>
-                    <p><?= htmlspecialchars($task['title']) ?></p>
-                    <p>Due to: <?= htmlspecialchars($task['category']) ?></p>
-                    <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
+                <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
                     <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
                 </div>
                 <?php

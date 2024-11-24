@@ -54,31 +54,6 @@ function saveTask() {
 }
 
 
-// Function to fetch tasks
-// function fetchTasks() {
-//     fetch("../pages/fetch_tasks.php")
-//         .then(response => response.json())
-//         .then(data => {
-//             tasks = data.tasks;
-//             renderTasks();
-//         })
-//         .catch(error => console.error("Error fetching tasks:", error));
-// }
-
-// Function to render tasks
-// function renderTasks() {
-//     document.querySelectorAll(".task-list").forEach(list => (list.innerHTML = ""));
-//     tasks.forEach(task => {
-//         const taskElement = document.createElement("div");
-//         taskElement.classList.add("task", task.priority);
-//         taskElement.innerHTML = `
-//             <h3>${task.title}    |    ${task.category}    |    Due to: ${task.due_date}</h3>
-//             <button onclick="deleteTask(${task.id})">Delete</button>
-//         `;
-//         document.getElementById(task.status).querySelector(".task-list").appendChild(taskElement);
-//     });
-// }
-
 // Function to delete a task
 function deleteTask(id) {
     fetch("../pages/delete_task.php", {
@@ -97,6 +72,3 @@ function deleteTask(id) {
         .catch(error => console.error("Error:", error));
     location.reload();
 }
-
-// Fetch tasks on page load
-// document.addEventListener("DOMContentLoaded", fetchTasks);
