@@ -61,77 +61,42 @@
         <div class="board">
             <!-- Column for pending tasks with sorting options -->
             <div class="column" id="pending">
-                <h2>Pending
-                    <select onchange="sortTasks('pending', this.value)">
+                <h2>Pending</h2>
+                
+                
+                <!-- Sort by selector -->
+                <select onchange="sortTasks('pending', this.value)">
                         <option value="title">Title</option>
                         <option value="priority">Priority</option>
                         <option value="dueDate">Due Date</option>
+                </select>
+
+
+
+                <div class="sort-container">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy" onchange="sortTasks()">
+                        <option value="dueDate">Due Date</option>
+                        <option value="priority">Priority</option>
+                        <option value="category">Title</option>
                     </select>
-                </h2>
+                </div>
+                
                 <div class="task-list">
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['status'] === 'pending'): ?>
                             <div class="task <?= htmlspecialchars($task['priority']) ?>">
                                 <h3><?= htmlspecialchars($task['title']) ?></h3>
+                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
                                 <p><?= htmlspecialchars($task['category']) ?></p>
                                 <p>Due to: <?= htmlspecialchars($task['due_date']) ?></p>
-                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
-                                <button onclick="moveTask('<?= $task['id'] ?>', 'in-progress')">Move to In Progress</button>
                                 <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
-            
-            <!-- Column for in-progress tasks with sorting options -->
-            <div class="column" id="in-progress">
-                <h2>In Progress 
-                    <select onchange="sortTasks('in-progress', this.value)">
-                        <option value="title">Title</option>
-                        <option value="priority">Priority</option>
-                        <option value="dueDate">Due Date</option>
-                    </select>
-                </h2>
-                <div class="task-list">
-                    <?php foreach ($tasks as $task): ?>
-                        <?php if ($task['status'] === 'in-progress'): ?>
-                            <div class="task <?= htmlspecialchars($task['priority']) ?>">
-                                <h3><?= htmlspecialchars($task['title']) ?></h3>
-                                <p><?= htmlspecialchars($task['category']) ?></p>
-                                <p>Due to: <?= htmlspecialchars($task['due_date']) ?></p>
-                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
-                                <button onclick="moveTask('<?= $task['id'] ?>', 'completed')">Move to Completed</button>
-                                <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
-                            </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            
-            <!-- Column for completed tasks with sorting options -->
-            <div class="column" id="completed">
-                <h2>Completed
-                    <select onchange="sortTasks('completed', this.value)">
-                        <option value="title">Title</option>
-                        <option value="priority">Priority</option>
-                        <option value="dueDate">Due Date</option>
-                    </select>
-                </h2>
-                <div class="task-list">
-                    <?php foreach ($tasks as $task): ?>
-                        <?php if ($task['status'] === 'completed'): ?>
-                            <div class="task <?= htmlspecialchars($task['priority']) ?>">
-                                <h3><?= htmlspecialchars($task['title']) ?></h3>
-                                <p><?= htmlspecialchars($task['category']) ?></p>
-                                <p>Due to: <?= htmlspecialchars($task['due_date']) ?></p>
-                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
-                                <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
-                            </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+
         </div>
     </main>
 

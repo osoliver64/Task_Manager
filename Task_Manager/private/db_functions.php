@@ -3,7 +3,8 @@
 require_once("db_credentials.php");
 
     function db_connect() {
-        $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+        $connection = mysqli_connect('localhost', 'appuser', 'password', 'db_task_manager');
+
         
         if (mysqli_connect_errno()) {
             $msg = "Database connection failed";
