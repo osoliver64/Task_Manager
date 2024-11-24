@@ -22,9 +22,10 @@
         <!-- Navigation links -->
         <nav>
             <a class="navLink" href="index.php">Dashboard</a>
-            <a class="navLink" href="pending.php">Pending</a>
-            <a class="navLink" href="inprogress.php">In Progress</a>
-            <a class="navLink" href="completed.php">Completed</a>
+            <br>
+            <a class="navLink" href="highPriority.php">High Priority</a>
+            <a class="navLink" href="mediumPriority.php">Medium Priority</a>
+            <a class="navLink" href="lowPriority.php">Low Priority</a>
             <br>
             <a class="navLink" href="logout.php">Log Out</a>
         </nav>

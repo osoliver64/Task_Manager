@@ -8,7 +8,6 @@
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         $db = db_connect();
 
-        echo "<script>console.log('made it');";
         if (isset($_POST["searchBar"]) && isset($_SESSION["userId"])){
 
             unset($_SESSION["searchResult"]);

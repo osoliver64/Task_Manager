@@ -76,8 +76,6 @@ function renderTasks() {
             <p>${task.category}</p>
             <p>Due to: ${task.due_date}</p>
             <p>Priority: ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}</p>
-            ${task.status === "pending" ? `<button onclick="moveTask(${task.id}, 'in-progress')">Move to In Progress</button>` : ""}
-            ${task.status === "in-progress" ? `<button onclick="moveTask(${task.id}, 'completed')">Move to Completed</button>` : ""}
             <button onclick="deleteTask(${task.id})">Delete</button>
         `;
         document.getElementById(task.status).querySelector(".task-list").appendChild(taskElement);

@@ -43,7 +43,7 @@
     <script src="../scripts/script.js" defer></script>
     <script src="../scripts/sidebar_script.js" defer></script>
 </head>
-<body id="indexBody" class="taskbarOpen">
+<body id="indexBody" class="taskbarOpen innerSiteBody">
     <!-- Header section with a button to add a new task -->
     <header>
         <button id="addNewTaskButton" onclick="openTaskModal()">New Task</button>
