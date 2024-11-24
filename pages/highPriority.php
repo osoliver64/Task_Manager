@@ -43,25 +43,30 @@
     <?php include "side_bar.php"; ?>
     <main>
         
-    <h1 class="subHeading">High Priority Tasks: </h1>
-
-        <?php
-        if (!empty($highTasks)) { 
-            foreach ($highTasks as $task) { 
-                ?>
-                <div class="task <?= $task['priority'] ?>">
-                    <h3><?= htmlspecialchars($task['priority']) ?></h3>
-                    <p><?= htmlspecialchars($task['title']) ?></p>
-                    <p>Due to: <?= htmlspecialchars($task['category']) ?></p>
-                    <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
-                    <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
+    <div class="board">
+        <div class="column" id="pending">
+            <h1 class="subHeading">High Priority Tasks: </h1>
+                <div class="track-list">
+                    <?php
+                    if (!empty($highTasks)) {
+                        foreach ($highTasks as $task) {
+                            ?>
+                            <div class="task <?= $task['priority'] ?>">
+                                <h3><?= htmlspecialchars($task['priority']) ?></h3>
+                                <p><?= htmlspecialchars($task['title']) ?></p>
+                                <p>Due to: <?= htmlspecialchars($task['category']) ?></p>
+                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
+                                <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
+                            </div>
+                            <?php
+                    }}
+                    else {
+                    echo "<h3>" . htmlspecialchars($noResultsMsg) . "</h3>";
+                    }
+                    ?>
                 </div>
-                <?php
-        }} 
-        else {
-        echo "<h3>" . htmlspecialchars($noResultsMsg) . "</h3>";
-        }
-        ?>
+        </div>
+    </div>
 
     </main>
 </body>
