@@ -43,7 +43,7 @@
     <?php include "side_bar.php"; ?>
     <main>
 
-        <h1>Low Priority Tasks: </h1>
+        <h1 class="subHeading">Low Priority Tasks: </h1>
 
         <?php
         if (!empty($lowTasks)) { 

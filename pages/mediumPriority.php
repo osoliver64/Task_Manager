@@ -41,7 +41,7 @@
 </head>
 <body class="taskbarOpen innerSiteBody">
     
-    <h1>Medium Priority Tasks: </h1>
+    <h1 class="subHeading">Medium Priority Tasks: </h1>
 
     <?php include "side_bar.php"; ?>
     <main>

@@ -19,6 +19,10 @@
     padding: 0 20px;
 }
 
+.subHeading {
+    margin: 20px 0 40px 10px;
+}
+
 .title-container {
     text-align: center;
     flex: 1;
