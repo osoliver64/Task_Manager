@@ -14,8 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style.css" >
+    <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/sidebar_script.js" defer></script>
 </head>
-<body>
+<body id="searchResultBody">    
+    <?php include "side_bar.php"; ?>
 <main>
 
     <?php
@@ -25,8 +28,8 @@
     //     echo "<p>$row</p>";
     // }
     // POSSIBLY TAKE OUT ISSET (MAY BE REDUNDANT)
-    
-    if (!empty($_SESSION["searchResult"])) { // Check if searchResult is not empty
+
+    if (!empty($_SESSION["searchResult"])) { 
         foreach ($_SESSION["searchResult"] as $task) { 
             ?>
             <div class="task <?= $task['priority'] ?>">
@@ -34,7 +37,7 @@
                 <p><?= htmlspecialchars($task['title']) ?></p>
                 <p>Due to: <?= htmlspecialchars($task['category']) ?></p>
                 <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
-                <button onclick="deleteTask('<?= htmlspecialchars($task['id']) ?>')">Delete</button>
+                <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
             </div>
             <?php
         }

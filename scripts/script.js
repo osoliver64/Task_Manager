@@ -59,8 +59,7 @@ function fetchTasks() {
     fetch("../pages/fetch_tasks.php")
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            tasks = data;
+            tasks = data.tasks;
             renderTasks();
         })
         .catch(error => console.error("Error fetching tasks:", error));

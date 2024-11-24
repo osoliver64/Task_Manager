@@ -1,10 +1,9 @@
 <?php
 session_start();
-include '../private/db_connection.php';
 
-// require_once("../private/db_functions.php");
+require_once("../private/db_functions.php");
 
-// $conn = db_connect();
+$conn = db_connect();
 
 
 // Establecer el tipo de contenido como JSON
