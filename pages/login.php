@@ -70,7 +70,8 @@
     <title>Task Manager: Log In</title>
 </head>
 <body>
-    <!-- Include main header here -->
+    <!-- Include header for when logged out -->
+    <?php include "loggedOutHeader.php" ?>
     <main>
         <div class="formContainer">
         <h1>Sign Up</h1>

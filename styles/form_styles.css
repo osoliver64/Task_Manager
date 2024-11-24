@@ -10,10 +10,14 @@ html {
 }
 
 /* Center the body */
-body {
+main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.loggedOutHeader {
+    margin: 20px 0 40px 15px;
 }
 
 form {
