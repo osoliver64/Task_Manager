@@ -52,10 +52,7 @@
                         foreach ($highTasks as $task) {
                             ?>
                             <div class="task <?= $task['priority'] ?>">
-                                <h3><?= htmlspecialchars($task['priority']) ?></h3>
-                                <p><?= htmlspecialchars($task['title']) ?></p>
-                                <p>Due to: <?= htmlspecialchars($task['category']) ?></p>
-                                <p>Priority: <?= ucfirst(htmlspecialchars($task['priority'])) ?></p>
+                                <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
                                 <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
                             </div>
                             <?php
