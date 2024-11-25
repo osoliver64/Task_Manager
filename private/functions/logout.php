@@ -8,6 +8,6 @@
     session_destroy();
 
     // Redirect ot login page
-    header("Location: login.php");
+    header("Location: ../../pages/login.php");
 
 ?>

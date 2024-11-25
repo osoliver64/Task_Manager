@@ -1,3 +1,4 @@
+
 <!-- Side bar for navigating for when user in logged into site -->
 
 <!-- 'Button' to expand side bar (only visable when side bar is colapsed) -->
@@ -23,7 +24,7 @@
             <!-- Link to low priority tasks page -->
             <a class="navLink" href="lowPriority.php">Low Priority</a>
             <br>
-            <!-- Link to log user out of site. Ends the session and redirects user to log in page -->
-            <a class="navLink" href="logout.php">Log Out</a>
+            <!-- Link to log user out of site. Ends the session and redirects user to log in  -->
+            <a class="navLink" href="../private/functions/logout.php">Log Out</a>
         </nav>
     </div>

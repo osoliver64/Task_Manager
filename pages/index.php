@@ -9,29 +9,29 @@
     }
 
     // Import database functions
-    require_once("../private/db_functions.php");
+    require_once("../private/database/db_functions.php");
     // Connect to database
     $db = db_connect();
 
-    
     // Function to load tasks when the page is initialized
     function fetchTasks($userId, $db) {
+        // Prepare SQL query to fetch tasks for the given user ID
         $stmt = $db->prepare("SELECT id, title, category, priority, due_date, status FROM tasks WHERE user_id = ?");
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $tasks = [];
+        $stmt->bind_param("i", $userId); // Bind user ID as an integer parameter
+        $stmt->execute(); // Execute the query
+        $result = $stmt->get_result(); // Fetch the results
+        $tasks = []; // Initialize an empty array to store tasks
         while ($row = $result->fetch_assoc()) {
-            $tasks[] = $row;
+            $tasks[] = $row; // Add each row to the tasks array
         }
-        $stmt->close();
-        return $tasks;
+        $stmt->close(); // Close the statement
+        return $tasks; // Return the list of tasks
     }
     // Fetch the tasks of the current user
-    $userId = $_SESSION['userId'];
-    $tasks = fetchTasks($userId, $db);
+    $userId = $_SESSION['userId']; // Get the user ID from the session
+    $tasks = fetchTasks($userId, $db); // Retrieve the tasks for the logged-in user
 
-    db_disconnect($db);
+    db_disconnect($db); // Disconnect from the database
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +58,10 @@
     </header>
 
     <div>
-    <?php include "search.php" ?>
+    <!-- Include the search bar functionality -->
+    <?php include "../pages/search.php" ?>
     <!-- Sidebar section with links to different task statuses -->
-    <?php include "side_bar.php"; ?>
+    <?php include "../pages/side_bar.php"; ?>
     </div>
     <!-- Main content section with columns for each task status -->
     <main>
@@ -68,6 +69,7 @@
             <h1>Your tasks</h1>
         </div>
         <div>
+        <!-- Button to trigger the modal for adding a new task -->
         <button id="addNewTaskButton" onclick="openTaskModal()">New Task</button>
         </div>
         <div class="board">
@@ -76,10 +78,13 @@
                 <h2>Pending Tasks 
                 </h2>
                 <div class="task-list">
+                    <!-- Loop through the tasks and display only pending tasks -->
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['status'] === 'pending'): ?>
                             <div class="task <?= htmlspecialchars($task['priority']) ?>">
-                            <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
+                                <!-- Display task details -->
+                                <h3><?= htmlspecialchars($task['title']) . " | " . htmlspecialchars($task['category']) . " | Due to: " . htmlspecialchars($task['due_date']) ?></h3>
+                                <!-- Button to delete the task -->
                                 <button onclick="deleteTask('<?= $task['id'] ?>')">Delete</button>
                             </div>
                         <?php endif; ?>
@@ -94,7 +99,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeTaskModal()">&times;</span>
             <h2>New Task</h2>
-            <form id="taskForm" action="add_task.php" method="post">
+            <form id="taskForm" action="../private/functions/add_task.php" method="post">
                 <!-- Input fields for task details -->
                 <label for="title">Title:</label>
                 <input type="text" name="title" id="title" required>
@@ -117,7 +122,5 @@
             </form>
         </div>
     </div>
-    
-    <?php include "footer.php" ?>
 </body>
 </html>

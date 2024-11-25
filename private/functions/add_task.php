@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../private/db_functions.php");
+require_once("../database/db_functions.php");
 $conn = db_connect();
 
 // Set the content type to JSON
@@ -82,5 +82,5 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-header("Location: index.php")
+header("Location: ../../pages/index.php")
 ?>

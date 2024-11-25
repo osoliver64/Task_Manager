@@ -1,6 +1,6 @@
 <?php
     
-    require_once("../private/db_functions.php");
+    require_once("../private/database/db_functions.php");
     // If no session
     if (!isset($_SESSION)) {
         // Start session
@@ -90,7 +90,6 @@
                 </div>
         </div>
     </div>
-
     </main>
 </body>
 </html>

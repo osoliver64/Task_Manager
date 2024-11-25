@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     // Import database functions
-    require_once("../private/db_functions.php");
+    require_once("../private/database/db_functions.php");
     // Connect to database
     $db = db_connect();
 

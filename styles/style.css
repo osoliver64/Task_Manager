@@ -4,37 +4,43 @@
 /* Reset and general styling */
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0; 
+    padding: 0; 
     font-family: Arial, sans-serif;
 }
 
+/* Header styling */
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 100px;
-    padding: 0 20px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    height: 100px; 
+    padding: 0 20px; 
 }
 
+/* Subheading styling */
 .subHeading {
     margin: 20px 0 40px 10px;
 }
 
+/* Title container inside the header */
 .title-container {
     text-align: center;
     flex: 1;
 }
 
+/* Logo container inside the header */
 .logo-container {
     position: absolute;
     right: 20px;
 }
 
+/* Logo image styling */
 .logo {
     height: 80px;
 }
+
 /* Adjust margin for body when taskbar is open */
 body.taskbarOpen {
     margin-left: 280px;
@@ -42,55 +48,54 @@ body.taskbarOpen {
 
 /* Body styling with centered layout */
 body {
-    align-items: center;
-    margin-left: 100px;
-    transition: margin-left 1s ease, width 1s ease;
-    background-color:rgb(255, 247, 234);
+    align-items: center; 
+    margin-left: 100px; 
+    transition: margin-left 1s ease, width 1s ease; 
+    background-color: rgb(255, 247, 234); 
 }
 
 /* General button style */
 button {
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 10px;
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 10px; 
 }
 
 /* Style for the "New Task" button */
 #addNewTaskButton {
-    padding: 10px 20px;
-    width: 180px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 10px;
+    padding: 10px 20px; 
+    width: 180px; 
+    height: 50px; 
+    cursor: pointer; 
+    border-radius: 10px; 
     border-color: #1d02e4;
-    background-color: #4093ff;
-    color: #f1f1f1;
-    font-size: large;
-    margin: 10px 0px;
+    background-color: #4093ff; 
+    color: #f1f1f1; 
+    font-size: large; 
+    margin: 10px 0px; 
 }
 
 /* Main board styling */
 .headings {
-    color:rgb(17, 17, 82);
-    margin: 10px 0px;
+    color: rgb(17, 17, 82);
+    margin: 10px 0px; 
 }
 
 .board {
-    display: flex;
-    gap: 2px;
-    width: 99%;
-    background-color: #71b8e74f;
+    display: flex; 
+    gap: 2px; 
+    width: 99%; 
+    background-color: #71b8e74f; 
     border-radius: 20px;
-    margin: 20px 0px;
+    margin: 20px 0px; 
 }
 
 /* Styling for task columns */
 .column {
-    flex: 1;
-    background-color: #fff5f555;
-    padding: 15px;
-    border-radius: 5px;
-
+    flex: 1; 
+    background-color: #fff5f555; 
+    padding: 15px; 
+    border-radius: 5px; 
 }
 .column h2 {
     text-align: center;
@@ -98,104 +103,110 @@ button {
 
 /* Container for task items */
 .task-list {
-    min-height: 200px;
+    min-height: 200px; 
 }
 
 /* Individual task styling */
 .task {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background-color: #fff; 
+    border-radius: 15px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
 }
 
 /* Task color coding based on priority */
-.task.high { border: 4px solid rgb(128, 141, 255); background-color: rgb(255, 204, 204);}
-.task.medium { border: 3px solid rgb(182, 189, 255); background-color: rgb(255, 255, 226);}
-.task.low { border-left: 1px solid rgb(219, 222, 255);; background-color: rgb(192, 255, 192);}
+.task.high {
+    border: 4px solid rgb(128, 141, 255);
+    background-color: rgb(255, 204, 204); 
+}
+.task.medium {
+    border: 3px solid rgb(182, 189, 255);
+    background-color: rgb(255, 255, 226); 
+}
+.task.low {
+    border-left: 1px solid rgb(219, 222, 255); 
+    background-color: rgb(192, 255, 192); 
+}
 
 /* Modal styling for adding a new task */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(40, 40, 40, 0.5);
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(40, 40, 40, 0.5); 
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #fff; 
+    padding: 20px; 
     border-radius: 20px;
-    width: 500px;
+    width: 500px; 
     position: fixed;
 }
 
 /* Close button style for the modal */
 .close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+    top: 10px; 
+    right: 10px; 
+    cursor: pointer; 
     font-size: 18px;
 }
 
 /* Task form layout and input styling */
 #taskForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
 }
 
 #taskForm input, #taskForm select, #taskForm button {
-    padding: 8px;
-    font-size: 14px;
+    padding: 8px; 
+    font-size: 14px; 
     border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
+    border: 1px solid #ccc; 
+    margin-top: 5px; 
 }
 
 /* Button style for task form */
 #taskForm button {
-    align-self: flex-start;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    font-size: large;
-    cursor: pointer;
-    width: 100%;
-    height: 3rem;
+    align-self: flex-start; 
+    background-color: #555; 
+    color: #fff; 
+    border: none; 
+    font-size: large; 
+    cursor: pointer; 
+    width: 100%; 
+    height: 3rem; 
 }
 
 #taskForm button:hover {
-    background-color: #ED9E59;
+    background-color: #ED9E59; 
 }
 
+/* Styling for search bar */
 #searchBar {
-    height: 4vh;
-    width: 15vw;
-    border-radius: 25px;
-    padding: 5px;
+    height: 4vh; 
+    width: 15vw; 
+    border-radius: 25px; 
+    padding: 5px; 
     min-width: 200px;
 }
 
-/* #searchButton {
-    height: 3vh;
-} */
-
-/* Media query for medium sized screens */
+/* Media query for medium-sized screens */
 @media (max-width: 750px) {
-    /* Hide logo */
+    /* Hide logo on smaller screens */
     .logo-container {
         display: none;
     }
-    /* Set margin and make body not move when when side bar menu is open */
+    /* Adjust body margin to prevent shifting */
     body {
         margin-left: 10px;
     }
@@ -209,13 +220,13 @@ button {
     }
 }
 
-/* Media query for small screens */
+/* Media query for very small screens */
 @media (max-width: 200px) {
-    /* Increase top margin for main header */
+    /* Increase top margin for the header */
     .header {
         margin-top: 40px;
     }
-    /* Decrease font size for titles */
+    /* Reduce font size for titles */
     h1 {
         font-size: 28px;
     }
@@ -224,4 +235,3 @@ button {
         width: 95%;
     }
 }
-

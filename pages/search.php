@@ -1,7 +1,7 @@
 <?php
     
     // Import database functions
-    require_once("../private/db_functions.php");
+    require_once(__DIR__ . "/../private/database/db_functions.php");
 
     // If session isn't set
     if (!isset($_SESSION)) {
