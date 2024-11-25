@@ -14,7 +14,7 @@
     // Boolean to track if username entered is taken by another user or not
     $usernameNotTaken = true;
 
-    // If form is submitted
+    // If form is submitted via post
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // If all fields are non-emty
         if (!isset($_POST["reset"]) &&
@@ -24,7 +24,7 @@
         isset($_POST["password"]) &&
         isset($_POST["retype"]) &&
         isset($_POST["submit"]))) {
-            // Save form input values in variables after trimming
+            // Save form input values in variables (trimming all except password)
             $firstName = trim($_POST["firstName"]);
             $lastName = trim($_POST["lastName"]);
             $email = trim($_POST["email"]);
@@ -174,7 +174,8 @@
 </body>
 </html>
 
-<!-- Disconnect from database -->
+
 <?php 
+    // Disconnect from database 
     db_disconnect($db); 
 ?>

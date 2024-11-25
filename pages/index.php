@@ -1,17 +1,20 @@
 <?php 
     session_start();
 
-    // Redirige al usuario si no ha iniciado sesión
+    // If user not logged in
     if (!isset($_SESSION['userId'])) {
+        // Redirect to login page
         header('location: login.php');
         exit();
     }
 
+    // Import database functions
     require_once("../private/db_functions.php");
+    // Connect to database
     $db = db_connect();
 
     
-    // Función para cargar las tareas al iniciar la página
+    // Function to load tasks when the page is initialized
     function fetchTasks($userId, $db) {
         $stmt = $db->prepare("SELECT id, title, category, priority, due_date, status FROM tasks WHERE user_id = ?");
         $stmt->bind_param("i", $userId);
@@ -24,7 +27,7 @@
         $stmt->close();
         return $tasks;
     }
-    // Obtener las tareas del usuario actual
+    // Fetch the tasks of the current user
     $userId = $_SESSION['userId'];
     $tasks = fetchTasks($userId, $db);
 

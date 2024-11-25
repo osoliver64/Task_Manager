@@ -189,29 +189,37 @@ button {
     height: 3vh;
 } */
 
+/* Media query for medium sized screens */
 @media (max-width: 750px) {
+    /* Hide logo */
     .logo-container {
         display: none;
     }
-    
+    /* Set margin and make body not move when when side bar menu is open */
     body {
         margin-left: 10px;
     }
 }
 
+/* Media query for smaller screens */
 @media (max-width: 550px) {
+    /* Adjust width of add task modal */
     .modal-content {
         width: 83%;
     }
 }
 
+/* Media query for small screens */
 @media (max-width: 200px) {
+    /* Increase top margin for main header */
     .header {
         margin-top: 40px;
     }
+    /* Decrease font size for titles */
     h1 {
         font-size: 28px;
     }
+    /* Adjust width of add task modal */
     .modal-content {
         width: 95%;
     }

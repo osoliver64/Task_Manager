@@ -1,6 +1,9 @@
 <?php
+// Start session
 session_start();
+// Import database functions
 require_once("../private/db_functions.php");
+// Connect to database
 $conn = db_connect();
 
 header('Content-Type: application/json');
