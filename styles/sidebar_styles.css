@@ -20,6 +20,7 @@
     color: #000000;
 }
 
+/* Styling for the colapse side bar menu icon */
 #colapseMenuIcon {
     width: 30px;
     padding: 0;
@@ -27,7 +28,7 @@
     cursor: pointer;
 }
 
-
+/* Styling for the expand side bar menu icon */
 #expandMenuIcon {
     width: 30px;
     position: fixed;
@@ -37,16 +38,19 @@
     cursor: pointer;
 }
 
+/* Styling for closing the side bar with transition effect */
 #sidebar.hidden {
     transform: translateX(-250px);
     transition: transform 1s ease;
 }
 
+/* Styling for hiding the expand and colapse menu icons */
 #expandMenuIcon.hidden, #colapseMenuIcon.hidden {
     display: none;
     opacity: 0;
 }
 
+/* Styling for the side bar menu */
 #sidebarHeading {
     display: flex;
     flex-direction: row;
@@ -76,15 +80,14 @@
     transition: background-color 0.2s;
 }
 
-
+/* Media query for medium sized screens */
 @media (max-width: 750px) {
-    .logo-container {
-        display: none;
-    }
     
+    /* Decrease body's left margin and make it not shift over when task bar opens */
     body {
         margin-left: 10px !important;
     }
+    /* Make main header and expand menu icon not overlap */
     #expandMenuIcon {
         position: fixed;
         top: 20px;
@@ -92,7 +95,10 @@
     }
 }
 
+/* Media query for small sized screens */
 @media (max-width: 265px) {
+    /* When side bar open make it take up the full screen width and
+     don't allow colapse icon and title to overlap */
     #sidebar:not(hidden)  {
         width: 100%;
         display: inline-block;
@@ -100,16 +106,16 @@
     
 }
 
+/* Media query for even smaller sized screens */ 
 @media (max-width: 200px) {
+    /* Keep colapse menu icon on screen */
     #colapseMenuIcon {
         position: absolute;
         right: 20px;
         top: 20px;
     }
     
-    /* #sidebar {
-        padding: 10px;
-    } */
+    /* Decrease font size of side bar menu header */
     #sidebar h1 {
         font-size: 28px;
     }

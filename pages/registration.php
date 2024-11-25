@@ -77,7 +77,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/form_styles.css">
-    <script src="../scripts/form_validation.js" defer></script>
+    <script src="../scripts/registrationValidation.js" defer></script>
     <title>Task Manager: Sign Up</title>
 </head>
 <body>

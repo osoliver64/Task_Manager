@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Background for entire page */
 html {
     background-color: rgb(255, 247, 234);
 }
@@ -16,20 +17,24 @@ main {
     align-items: center;
 }
 
+/* Margin for main header */
 .loggedOutHeader {
     margin: 20px 0 40px 15px;
 }
 
+/* Positioning of logo */
 .logo-container {
     position: absolute;
     right: 14px;
     top: 8px;
 }
 
+/* Logo sizing */
 .logo {
     height: 80px;
 }
 
+/* Margin for form */
 form {
     margin-top: 20px;
 }
@@ -45,6 +50,7 @@ form {
     font-size: 40px;
 }
 
+/* Width of form container */
 .formContainer {
     width: 40vw;
 }
@@ -106,15 +112,19 @@ button[type="reset"] {
     margin-left: 15px;
 }
 
+/* Make cursor pointer when hovering on buttons */
 button {
     cursor: pointer;
 }
 
+/* Font size for link to sign in pages */
 .signInLink {
     font-size: 12px;
 }
 
+/* Mediua query for medium size screens */
 @media (max-width: 700px) {
+    /* Make form container take up more of the screen width*/
     .formContainer {
         width: 70vw;
     }
@@ -126,6 +136,7 @@ button {
     body {
         margin-left: 0px;
     }
+    /* Remove form container margin and make it take up more of the screen width */
     .formContainer {
         margin-left: 0;
         width: 95vw;
@@ -142,25 +153,23 @@ button {
     .formContainer h1 {
         font-size: 35px;
     }
+    /* Adjust margin for main header */
     .loggedOutHeader {
         margin: 20px 0 40px 15px;
     }
-    
+    /* Hide the company logo */
     .logo {
         display: none;
     }
 }
 
+/* Media query for small screens */
 @media (max-width: 200px) {
+    /* Button margins */
     button {
-        display: inline-block;
         margin-left: 11vw;
     }
-    .warning {
-        margin-left: 5px;
-        flex-shrink: 1;
-    }
-
+    /* Make form container take up more of screen width and adjust left margin */
     .formContainer {
         width: 90%;
         margin-left: 5px;

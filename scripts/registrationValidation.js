@@ -82,36 +82,48 @@ removeErrorWhenValidInput(retypePasswordField, "retypePasswordError", "retypePas
 
 // Method to clear all error indicators
 function clearAllErrors() {
+    // Select all error message elements
     let errors = document.getElementsByClassName("warning");
+    // Select all error marker elements 
     let errorMarkers = document.getElementsByClassName("errorMarker");
+    // Select all text inputs
     let textInputs = document.getElementsByTagName("input");
+    // Remove all error messages
     for (let i = errors.length - 1; i >= 0; i--) {
         if (elementExists(errors[i].id)) {
             errors[i].remove();
         }
-        
     }
+    // Remove all error markers
     for (let i = errorMarkers.length - 1; i >= 0; i--) {
         if (elementExists(errorMarkers[i].id)) {
             errorMarkers[i].remove();
         }
         
     }
+    // Remove red border from each text input
     for (let i = 0; i < textInputs.length; i++) {
         textInputs[i].style.borderColor = "#9e9e9e";
     }
 }
 
-// Remove all error messages when reset button is clicked
-// document.querySelector('button[type="reset"]').addEventListener("click", clearAllErrors);
+// Select the error message for username being taken
 usernameTakenError = document.getElementById("usernameTakenError");
+
+// Event listener for when reset button is clicked
 document.querySelector("button[type='reset']").addEventListener("click", function(event) {
+    
+    // Prevent defualt behavior to be able to clear the php echoed values in registration form
     event.preventDefault();
+    // Remove the username taken error if it exists
     if (usernameTakenError) {
         usernameTakenError.textContent = "";
     }
 
+    // Clear all JavaScript validation errors
     clearAllErrors();
+
+    // Clear form input fields 
     firstNameField.value = "";
     lastNameField.value = "";
     usernameField.value = "";
@@ -149,11 +161,9 @@ function validateUsername() {
 // Check that password is 8 or more characters
 function validatePassword() {
     let error = defaultMsg;
-    //** CHANGE THIS BACK FOR CORRECT VALIDATION */
     // Minimum of eight characters, at least: one uppercase letter, one lowercase letter, one number and one special character
-    // let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    // if (!passwordRegEx.test(passwordField.value)) {
-    if (passwordField.value.length < 8) {
+    let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    if (!passwordRegEx.test(passwordField.value)) {
         error = passwordErrorMsg;
     }
     return error;
@@ -187,16 +197,21 @@ function validateLastName() {
 }
 
 
-// Method to check if element already exists in the HTML; returns true if it does exist, false otherwise
+// Function to check if element already exists in the HTML; returns true if it does exist, false otherwise
 function elementExists(elementId) {
     return document.getElementById(elementId) !== null
 }
-
+// Function to remove error message
 function removeError(fieldError) {
     if (elementExists(fieldError.id)) {
         fieldError.remove();
     }
 }
+// Function to display error
+// Arguments:
+//          fieldError: Error to be displayed
+//          fieldErrorMarkerId: Id of the field error marker to be displayed
+//          inputField: Input field to put error marker and message with
 function displayError(fieldError, fieldErrorMarkerId, inputField) {
     let fieldErrorMarker = document.getElementById(fieldErrorMarkerId);
         if (!elementExists(fieldError.id) && fieldErrorMarker != null) {  //** */
@@ -349,6 +364,7 @@ function validate() {
     if (valid) {
         usernameField.value = usernameField.value.toLowerCase();
     }
+    // Return whether the form passes validation or not
     return valid;
 }
 
