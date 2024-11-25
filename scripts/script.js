@@ -24,31 +24,35 @@ function saveTask() {
 
     // Validate that all fields are filled
     if (!title || !category || !priority || !dueDate) {
-        alert("Todos los campos son obligatorios."); // Alert the user if any field is missing
+         // Alert the user if any field is missing
+        alert("All fields are required");
         return;
     }
 
     // Create a FormData object to send the task data to the server
     const formData = new FormData();
-    formData.append("title", title); // Add the title to the FormData 
-    formData.append("category", category); // Add the category to the FormData 
-    formData.append("priority", priority); // Add the priority to the FormData 
-    formData.append("dueDate", dueDate); // Add the due date to the FormData
+    formData.append("title", title);
+    formData.append("category", category); 
+    formData.append("priority", priority); 
+    formData.append("dueDate", dueDate); 
 
     // Use fetch to send a POST request with the task data
     fetch("../pages/add_task.php", {
-        method: "POST", // HTTP method for sending data
-        body: formData, // Attach the FormData as the body of the request
+        method: "POST",
+         // Attach the FormData as the body of the request
+        body: formData,
     })
         .then(response => response.json()) // Convert the server's response to JSON format
         .then(data => {
+            // If the task was added successfully
             if (data.success) {
-                // If the task was added successfully
-                closeTaskModal(); // Close the modal
-                fetchTasks(); // Fetch the updated list of tasks
+                // Close the modal
+                closeTaskModal(); 
+                // Fetch the updated list of tasks
+                fetchTasks(); 
             } else {
                 // Show an error message if the task could not be added
-                alert("Error al agregar la tarea: " + data.error);
+                alert("Error adding the task: " + data.error);
             }
         })
         .catch(error => {
@@ -63,10 +67,13 @@ function deleteTask(id) {
     // Use fetch to send a POST request to delete a task
     fetch("../private/functions/delete_task.php", {
         method: "POST", // HTTP method for sending data
-        headers: { "Content-Type": "application/json" }, // Set the content type to JSON
-        body: JSON.stringify({ id }), // Attach the task ID as a JSON object
+         // Set the content type to JSON
+        headers: { "Content-Type": "application/json" },
+         // Attach the task ID as a JSON object
+        body: JSON.stringify({ id }),
     })
-        .then(response => response.json()) // Convert the server's response to JSON format
+        // Convert the server's response to JSON format
+        .then(response => response.json()) 
         .then(data => {
             if (data.success) {
                 // If the task was deleted successfully
@@ -76,7 +83,8 @@ function deleteTask(id) {
                 alert(data.message);
             }
         })
-        .catch(error => console.error("Error:", error)); // Log any errors that occur during the fetch process
+        // Log any errors that occur during the fetch process
+        .catch(error => console.error("Error:", error));
 
-    location.reload(); // Reload the page to reflect the changes (optional, can be replaced with UI updates)
+    location.reload(); // Reload the page to reflect the changes
 }
