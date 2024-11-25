@@ -74,7 +74,7 @@
     <?php include "loggedOutHeader.php" ?>
     <main>
         <div class="formContainer">
-        <h1>Sign Up</h1>
+        <h1>Log In</h1>
         <form action="login.php" method="post" onsubmit="return validateLogin() && isUserValid();">
 
             <div class="textInputContainer">
@@ -101,7 +101,7 @@
                 <!-- Error message for incorrect username or password -->
             <?= "<span class='warning' id='loginErrorMsg'>$loginError</span>" ?>
                 <!-- Link to registration page (registration.php) -->
-            <p><a href="registration.php" class="signInLink">Click here to sign-up</a></p>
+            <p><a href="registration.php" class="signInLink">Don't have an account? Click here to sign-up.</a></p>
             
             <div class="formButtonsContainer">
                 <!-- Submit button to log in -->

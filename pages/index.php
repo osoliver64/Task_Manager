@@ -50,7 +50,7 @@
             <h1>My Task Manager</h1>
         </div>
         <div class="logo-container">
-            <img src="../images/logo.png" alt="Logo" class="logo">
+            <img src="../images/logo.svg" alt="Logo" class="logo">
         </div>
     </header>
 

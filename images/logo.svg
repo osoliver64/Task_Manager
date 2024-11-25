@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#E8F4FF"/>
+  
+  <!-- Clipboard/notepad shape -->
+  <rect x="60" y="40" width="80" height="120" rx="8" fill="#2B6CB0"/>
+  <rect x="70" y="30" width="60" height="20" rx="6" fill="#4299E1"/>
+  
+  <!-- Task checkmarks -->
+  <g stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- First checkmark -->
+    <polyline points="75,80 90,95 115,70"/>
+    <!-- Second checkmark -->
+    <polyline points="75,110 90,125 115,100"/>
+  </g>
+  
+  <!-- Decorative lines representing text -->
+  <line x1="75" y1="140" x2="125" y2="140" stroke="#90CDF4" stroke-width="4" stroke-linecap="round"/>
+</svg>

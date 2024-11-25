@@ -21,7 +21,15 @@
     <script src="../scripts/script.js" defer></script>
     <script src="../scripts/sidebar_script.js" defer></script>
 </head>
-<body class="taskbarOpen innerSiteBody">    
+<body class="taskbarOpen innerSiteBody">  
+    <header class="header">
+        <div class="title-container">
+            <h1>My Task Manager</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../images/logo.svg" alt="Logo" class="logo">
+        </div>
+    </header>
     <?php include "side_bar.php"; ?>
 <main>
     <div class="board">

@@ -6,7 +6,7 @@
 }
 
 html {
-    background-color: #CCCCCC;
+    background-color: rgb(255, 247, 234);
 }
 
 /* Center the body */
@@ -18,6 +18,16 @@ main {
 
 .loggedOutHeader {
     margin: 20px 0 40px 15px;
+}
+
+.logo-container {
+    position: absolute;
+    right: 14px;
+    top: 8px;
+}
+
+.logo {
+    height: 80px;
 }
 
 form {
@@ -85,15 +95,19 @@ form {
 
 /* Styling for submit button */
 button[type="submit"] {
-    background-color: #008000;
+    background-color: #4093ff;
     color: #FFFFFF;
 }
 
 /* Styling for reset button */
 button[type="reset"] {
-    background-color: #007BFF;
+    background-color: rgb(192, 95, 95);
     color: #FFFFFF;
     margin-left: 15px;
+}
+
+button {
+    cursor: pointer;
 }
 
 .signInLink {
@@ -123,10 +137,17 @@ button[type="reset"] {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 300px) {
+@media (max-width: 350px) {
     /* Decrease font-size of main header */
     .formContainer h1 {
         font-size: 35px;
+    }
+    .loggedOutHeader {
+        margin: 20px 0 40px 15px;
+    }
+    
+    .logo {
+        display: none;
     }
 }
 

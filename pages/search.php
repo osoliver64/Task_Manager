@@ -15,7 +15,7 @@
             $searchInput = $_POST["searchBar"];
             $userId = $_SESSION["userId"];
 
-            $sqlSearchQuery = "SELECT * FROM tasks WHERE user_id = $userId AND title LIKE '%" . $searchInput . "%'";
+            $sqlSearchQuery = "SELECT * FROM tasks WHERE user_id = $userId AND (title LIKE '%" . $searchInput . "%' OR category LIKE '%" . $searchInput . "%')";
             $searchResultSet = mysqli_query($db, $sqlSearchQuery);
 
             if (mysqli_num_rows($searchResultSet) > 0){
