@@ -1,0 +1,14 @@
+TASK BREAK DOWN:
+
+-login and registration (Oliver)
+-footer and header (Oliver)
+-task board (Mario)
+-sidebar (Oliver)
+-search navigation bar and sort by priority (Oliver)
+-task modal (New task) (Mario)
+-database structure and connection with tasks and users (Oliver & Mario)
+-wireframe and web map design (Oliver & Mario)
+-Styling use o CSS (Oliver & Mario)
+-Scripts use of JavaScript (Oliver & Mario) 
+-Review and testing (Oliver & Mario)
+

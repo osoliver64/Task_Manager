@@ -10,7 +10,7 @@ header('Content-Type: application/json');
 if (!isset($_SESSION['userId'])) {
     echo json_encode([
         'success' => false,
-        'message' => 'Acceso no autorizado.'
+        'message' => 'Unauthorized access.'
     ]);
     exit;
 }
@@ -26,7 +26,7 @@ $due_date = trim($_POST['dueDate'] ?? '');
 if (empty($title) || empty($category) || empty($priority) || empty($due_date)) {
     echo json_encode([
         'success' => false,
-        'message' => 'Todos los campos son obligatorios.'
+        'message' => 'All fields are mandatory'
     ]);
     exit;
 }
@@ -40,7 +40,7 @@ $stmt = $conn->prepare($sql);
 if (!$stmt) {
     echo json_encode([
         'success' => false,
-        'message' => 'Error al preparar la consulta: ' . $conn->error
+        'message' => 'Error preparing the query: ' . $conn->error
     ]);
     exit;
 }

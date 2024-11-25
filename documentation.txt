@@ -1,0 +1,96 @@
+Task Manager Project
+
+--DESCRIPTION
+
+The Task Management Application is a web-based tool designed to help users efficiently manage their tasks. It provides a user-friendly interface to add, display, edit, and delete tasks, along with features for filtering, sorting, and prioritizing tasks based on specific criteria. The application includes responsive design for different devices. 
+
+
+Features: 
+
+Database Functionality:
+Users can add, display, and delete tasks through the website.
+Tasks are stored in a database (db_task_manager) for persistent data management by using PHPmyAdmin.
+
+Search and Filtering:
+Search for tasks by title or description.
+
+Filter tasks based on:
+Priority: High, Medium, or Low.
+
+HTML Structure:
+HTML follows semantic structure for accessibility and future upgrading.
+
+User Registration Form:
+Users can create accounts to save and manage personal tasks, each user will have its own task manager.
+Secure login and account management. This includes a form validation script that rovides error messages for incorrect inputs.
+
+Dynamic Behavior:
+Real-time updates on task completion status.
+Animation effects for improved user interaction.
+
+Responsive Design:
+Optimized for desktop, tablet, and mobile screens.
+
+--USAGE OF DATABASE
+
+The application uses a relational database to store task and user information. Below is an schema of the database:
+Tables:
+
+Users:
+
+user_id (Primary Key): Unique identifier for each user.
+firstName: User's first name.
+lastName: User's last name.
+email: User's email address.
+username: User's name.
+password: password for secure login.
+
+Tasks:
+
+id (Primary Key): Unique identifier for each task.
+user_id (Foreign Key): Links tasks to a specific user.
+title: Title of the task.
+category: Detailed description of the task.
+priority: Priority level (High, Medium, Low).
+due_date: Deadline for task completion.
+status: Completion status (Completed, Incomplete).
+
+
+--INSTRUCTIONS OF HOW TO USE
+
+1. Register and Log In
+
+Open the application in your browser.
+If you don’t have an account:
+Click on the "Register" button.
+Fill in the form with your first name, last name, email, username, and password. Make sure to follow the validation rules for each field.
+
+If you already have an account:
+Log in by entering your username and password on the login page.
+
+
+2. Add a Task
+
+Once logged in, you’ll see the main dashboard of your task manager.
+Click on the "New Task" button.
+Fill out the following fields:
+Title: Name of the task.
+Category: Name of category of your task.
+Priority: Choose "High," "Medium," or "Low."
+Due Date: Enter the deadline for the task.
+Click on "Save" to add the task to your list.
+
+3. View and Filter Tasks
+
+All your tasks will appear in a list.
+Use the search and filter options to:
+Sort tasks by priority o use the search navigation input for tasks by keywords in the title.
+
+4. Delete Tasks
+
+To delete a task:
+Click on the "Delete" button from the task you want to delete. A confirmation message will appear to avoid accidental deletions. 
+
+5. Log Out
+When you’re done, click on "Log Out" to securely exit your account.
+
